@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --shell: 1280px;
+    --header-h: 76px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--header-h) + 24px);
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-feature-settings: 'ss01' on, 'cv05' on, 'cv11' on;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-teal text-white;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.gold.DEFAULT');
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  /*
+   * A template-less grid gets a single `auto` track, which is sized by the
+   * widest child's max-content. One long table row or a nowrap timestamp then
+   * pushes the whole page sideways on a phone. A 1fr track fills the container
+   * and lets children shrink; every `grid-cols-*` utility still wins over this
+   * base rule, and responsive variants take over at their breakpoint.
+   */
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  input, select, textarea, button {
+    font: inherit;
+  }
+
+  ::-webkit-scrollbar { width: 11px; height: 11px; }
+  ::-webkit-scrollbar-track { background: theme('colors.sand'); }
+  ::-webkit-scrollbar-thumb {
+    background: #c3cbc5;
+    border-radius: 99px;
+    border: 3px solid theme('colors.sand');
+  }
+  ::-webkit-scrollbar-thumb:hover { background: theme('colors.teal.DEFAULT'); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: var(--shell);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .shell { padding-inline: 2rem; }
+  }
+  @media (min-width: 1280px) {
+    .shell { padding-inline: 2.5rem; }
+  }
+
+  .display {
+    @apply font-display font-normal tracking-[-0.015em];
+  }
+
+  .eyebrow {
+    @apply text-2xs font-semibold uppercase tracking-[0.16em] text-teal-deep;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-white shadow-soft;
+  }
+
+  .hairline {
+    @apply border-t border-line;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full text-sm font-semibold
+           transition-all duration-300 ease-out disabled:cursor-not-allowed disabled:opacity-55
+           whitespace-nowrap;
+  }
+  .btn-primary {
+    @apply btn bg-ink px-6 py-3 text-white hover:bg-forest hover:shadow-lift active:scale-[0.985];
+  }
+  .btn-teal {
+    @apply btn bg-teal px-6 py-3 text-white hover:bg-teal-deep hover:shadow-lift active:scale-[0.985];
+  }
+  .btn-outline {
+    @apply btn border border-ink/15 bg-transparent px-6 py-3 text-ink hover:border-ink/40 hover:bg-white;
+  }
+  .btn-gold {
+    @apply btn bg-gold px-6 py-3 text-ink hover:bg-gold-deep hover:text-white;
+  }
+  .btn-ghost {
+    @apply btn px-4 py-2.5 text-ink/75 hover:bg-ink/[0.05] hover:text-ink;
+  }
+  .btn-sm { @apply px-4 py-2 text-[0.8125rem]; }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-3 py-1
+           text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-ink/70;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink
+           placeholder:text-ink/35 transition-colors focus:border-teal focus:outline-none
+           focus:ring-2 focus:ring-teal/15;
+  }
+
+  .link-underline {
+    @apply relative inline-flex items-center gap-1.5 font-medium text-teal-deep;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-underline:hover::after { transform: scaleX(1); }
+
+  .surface-ink {
+    background: radial-gradient(120% 120% at 12% 0%, #14453d 0%, #08201f 45%, #06191f 100%);
+  }
+
+  .prose-koyo {
+    @apply text-[1.0625rem] leading-[1.75] text-ink/80;
+  }
+  .prose-koyo h2 {
+    @apply display mt-12 mb-4 text-[2rem] leading-tight text-ink;
+  }
+  .prose-koyo h3 {
+    @apply mt-8 mb-3 text-lg font-semibold text-ink;
+  }
+  .prose-koyo p { @apply mb-5; }
+  .prose-koyo ul { @apply mb-5 space-y-2 pl-5; }
+  .prose-koyo li { @apply list-disc marker:text-teal; }
+  .prose-koyo strong { @apply font-semibold text-ink; }
+  .prose-koyo a { @apply text-teal-deep underline decoration-teal/30 underline-offset-4 hover:decoration-teal; }
+  .prose-koyo blockquote {
+    @apply my-8 border-l-2 border-gold bg-gold-soft/40 px-6 py-4 text-lg italic text-ink/90;
+  }
+
+  .table-koyo {
+    @apply w-full border-collapse text-sm;
+  }
+  .table-koyo th {
+    @apply border-b border-line bg-sand/60 px-4 py-3 text-left text-2xs font-semibold uppercase tracking-[0.12em] text-ink/60;
+  }
+  .table-koyo td {
+    @apply border-b border-line px-4 py-3.5 align-middle text-ink/80;
+  }
+  .table-koyo tr:last-child td { @apply border-b-0; }
+  .table-koyo tbody tr { @apply transition-colors hover:bg-teal-mist/60; }
+
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  }
+
+  .sr-only-focusable:not(:focus) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+
+@layer utilities {
+  .tabular { font-variant-numeric: tabular-nums; }
+  .balance { text-wrap: balance; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .mask-fade-r {
+    mask-image: linear-gradient(to right, black 88%, transparent 100%);
+  }
+}

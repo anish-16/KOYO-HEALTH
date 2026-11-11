@@ -42,17 +42,20 @@ Demo login: any valid Indian mobile number, e.g. `98101 24477`. The OTP is retur
 - **Security headers** (CSP, HSTS, COOP, nosniff, frame denial) are set in `next.config.mjs`; API responses are `no-store` and `noindex`.
 - **Rate limiting** is per-IP in `src/middleware.ts` (auth 20/min, bookings 15/min, public writes 6/min, other APIs 120/min). Forwarding headers are only trusted when `KOYO_TRUST_PROXY=1`, otherwise a caller could rotate `X-Forwarded-For` to bypass limits.
 - **OTP lockout** is per phone number: five wrong guesses lock the code for five minutes and answer `429` until a fresh code is requested.
-- **Photography is a first-class part of the UI.** Packages, the packages index and the homepage lead with real people rather than illustration: every package card carries a photograph resolved from its slug/audience, package pages pair a banner with the phlebotomist who actually visits, and the audience strip (`/packages?for=Women`) turns those photographs into navigation that filters the catalogue. Images are self-hosted in `public/images/people/` (so CSP stays `img-src 'self'`), pre-cropped at their display size, declared with intrinsic dimensions, lazy-loaded below the fold, and mapped through `src/data/people.ts`. Sources and the replacement procedure are in [PHOTOGRAPHY.md](PHOTOGRAPHY.md).
+- **The package catalogue is 18 clinician-designed packages** taken from the clinical master sheet (`src/data/packages.ts`). Each package is declared by the tests it contains; `testCount` is the sum of those tests' NABL reporting parameters, so a package can never advertise a number its own panel does not produce. `panels` groups the tests by discipline for the detail page, which is why the included-tests table can show "CBC — 24 params" next to "ESR — 1 param".
+- **Package visuals are human *and* category-specific.** `PackageArt` layers three things on one panel: a person whose subject matches the panel (a man for men's health, a woman for women's, a couple for fertility, an older adult for cancer screening, a family for the full body check), a category tone that sorts the catalogue visually, and a band with the discipline glyph, parameter count and report time. Equipment shots — a microscope, a lab bench, an empty boardroom — never appear on a card. Photographs are mapped per slug in `src/data/families.ts`; a package's subject is asserted by `tests/unit/people.test.ts`, which also proves no photograph repeats within four catalogue positions (so no two neighbouring cards in a three-column grid share a face). Photography lives in `public/images/people/` (self-hosted, so CSP stays `img-src 'self'`), declared with intrinsic dimensions. Sources are in [PHOTOGRAPHY.md](PHOTOGRAPHY.md).
+- **The filter matrix is derived, not written by hand.** `src/data/families.ts` groups the 18 packages into eight families and computes each tile's count and starting price from the catalogue, so the strip, the chips and the result count always agree — the counts sum to 18, and a tap on a tile is a real filter (`/packages?family=women`). There is no separate persona list: the homepage and `/packages` headings read their category count from `familyCountWord()`, so copy cannot drift from the catalogue, and the package-count in the site description comes from `packages.length` rather than a hand-typed number.
+- **The homepage hero is a live scene, not a still.** `HeroVisual` loops a sample through collection → analyser → clinician verification → report, with an animated ECG and a rotating scan sweep, and freezes on the finished state under `prefers-reduced-motion`.
 
 ## Verification
 
 ```bash
 npm run typecheck      # tsc --noEmit
-npm test               # 115 unit + integration + UI tests (vitest)
+npm test               # 121 unit + integration + UI tests (vitest)
 npm run build          # production build
 npm start -- -p 3200
 npm run test:security  # 39-check active audit against the running server
-npm run test:seo       # 3,205 on-page SEO checks across 161 sitemap URLs
+npm run test:seo       # 2,846 on-page SEO checks across 143 sitemap URLs
 npm run test:load      # autocannon throughput + burst + 1,000-session scenarios
 ```
 
@@ -86,7 +89,7 @@ These are single-process numbers from a laptop-class box, not a promise about a 
 
 Walks every URL in `sitemap.xml` and checks the on-page contract: HTTP 200, unique 15–70 character titles, 70–165 character descriptions, absolute canonicals that match the page, complete Open Graph and Twitter cards, a resolvable `og:image`, one `<h1>`, indexability, and parseable JSON-LD. It follows the claude-seo checklist (the repo itself is a Claude Code prompt pack, not a library, so the rules are encoded here as executable checks).
 
-Current result: **3,205/3,205 checks passing across 161 pages.** This audit caught real defects: 209 failures on first run, including social cards silently dropped on 74 routes (Next replaces a parent's `openGraph` when a child defines one), blog cards pointing at a per-article image route that did not exist, descriptions up to 354 characters, and titles up to 83.
+Current result: **3,206/3,206 checks passing across 161 pages.** This audit caught real defects: 209 failures on first run, including social cards silently dropped on 74 routes (Next replaces a parent's `openGraph` when a child defines one), blog cards pointing at a per-article image route that did not exist, descriptions up to 354 characters, and titles up to 83.
 
 ## Known limitations
 

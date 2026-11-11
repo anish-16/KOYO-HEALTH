@@ -1,0 +1,50 @@
+{
+  "name": "koyo-health",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KOYO Health — diagnostics, imaging and preventive care platform",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:security": "tsx scripts/security-audit.ts",
+    "test:load": "tsx scripts/load-test.ts",
+    "verify": "npm run typecheck && npm run test && npm run build",
+    "test:seo": "tsx scripts/seo-audit.ts"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.69.0",
+    "motion": "^14.9.1",
+    "next": "^15.5.29",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/autocannon": "^7.12.7",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^6.2.1",
+    "autocannon": "^8.0.0",
+    "autoprefixer": "^10.4.22",
+    "jsdom": "^25.0.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^5.1.0"
+  }
+}

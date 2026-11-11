@@ -1,0 +1,33 @@
+[
+  {
+    "id": "KB-2611-8354",
+    "createdAt": "2026-11-10T09:14:15.081Z",
+    "userPhone": "9810124477",
+    "patient": {
+      "name": "Aarav Mehta",
+      "age": 0,
+      "gender": "Male"
+    },
+    "contactPhone": "9810124477",
+    "items": [
+      {
+        "id": "ct/ct-brain-plain",
+        "name": "CT Brain (Plain)",
+        "serviceName": "CT Scan",
+        "price": 1499,
+        "mrp": 2200,
+        "fastingHours": 0,
+        "homeCollection": false,
+        "sample": "None"
+      }
+    ],
+    "total": 1499,
+    "savings": 701,
+    "mode": "Center Visit",
+    "centerId": "c2",
+    "date": "2026-11-17",
+    "slot": "12:00 PM",
+    "payment": "Pay online",
+    "status": "Confirmed"
+  }
+]
