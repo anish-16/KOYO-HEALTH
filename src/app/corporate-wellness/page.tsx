@@ -105,9 +105,7 @@ export default function CorporateWellnessPage() {
             </h1>
 
             <p className="mt-5 max-w-xl text-[0.9375rem] leading-relaxed text-muted">
-              End-to-end employee screening, onsite wellness camps and statutory OHC compliance,
-              run on a 268-centre NABL &amp; NABH network. One account manager, one invoice,
-              zero employee downtime.
+              End-to-end employee health screenings, onsite campus wellness camps, and statutory OHC compliance powered by India’s fastest-growing accredited diagnostic network.
             </p>
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -115,7 +113,7 @@ export default function CorporateWellnessPage() {
                 Request corporate proposal <ArrowRight className="h-4 w-4" />
               </Link>
               <a href={corporateContact.hotlineHref} className="btn-outline btn-sm">
-                <Phone className="h-3.5 w-3.5" /> Talk to an enterprise specialist
+                <Phone className="h-3.5 w-3.5" /> Schedule Discovery Call
               </a>
             </div>
 
@@ -142,16 +140,9 @@ export default function CorporateWellnessPage() {
                 imgClassName="object-[center_22%]"
                 sizes="(min-width: 1024px) 460px, 92vw"
               />
-              <div className="absolute left-5 top-5 rounded-full bg-white/95 px-3.5 py-1.5 text-[0.625rem] font-semibold text-ink shadow-soft backdrop-blur">
-                99.2% screening SLA
-              </div>
               <div className="absolute -bottom-5 left-4 rounded-2xl border border-line bg-white px-4 py-3 shadow-soft">
                 <p className="text-[0.5rem] uppercase tracking-[0.14em] text-ink/35">Network</p>
-                <p className="mt-0.5 text-sm font-semibold">268 centres · 48 cities</p>
-              </div>
-              <div className="absolute -right-3 bottom-16 hidden rounded-2xl border border-line bg-white px-4 py-3 shadow-soft sm:block">
-                <p className="text-[0.5rem] uppercase tracking-[0.14em] text-ink/35">Tax</p>
-                <p className="mt-0.5 text-sm font-semibold">80D benefit</p>
+                <p className="mt-0.5 text-sm font-semibold">Pan - India Network</p>
               </div>
             </div>
           </div>
@@ -179,8 +170,8 @@ export default function CorporateWellnessPage() {
         <Reveal>
           <SectionHeading
             eyebrow="Custom workforce programmes"
-            title="Healthcare designed around your industry, not a catalogue."
-            description="Four programmes cover the whole statutory and preventive surface. Each panel is built from your workforce risks, budget and compliance calendar."
+            title="Comprehensive Healthcare Tailored for Your Organization."
+            description="Flexible health packages designed around your industry risks, budget, and statutory compliance needs."
           />
         </Reveal>
 
@@ -228,7 +219,7 @@ export default function CorporateWellnessPage() {
           <Reveal className="lg:col-span-6">
             <p className="eyebrow">Smart health infrastructure</p>
             <h2 className="display mt-3 text-[2.1rem] leading-[1.05] sm:text-[2.6rem]">
-              A digital-first portal for modern HR teams.
+              Digital-First Healthcare Portal for Modern HR Teams.
             </h2>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted">
               Stop reconciling spreadsheets. Upload a roster, watch every batch across every city,
@@ -271,7 +262,7 @@ export default function CorporateWellnessPage() {
           <SectionHeading
             eyebrow="Proven across sectors"
             title="Specialised protocols for every industry."
-            description="A software campus and a three-shift plant do not share a health risk profile. The panel changes with the work."
+            description="Custom clinical protocols designed around the distinct operational risks and working environments of your workforce."
           />
         </Reveal>
 
@@ -367,7 +358,7 @@ export default function CorporateWellnessPage() {
             </h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
               Share your workforce requirement and an enterprise health specialist will send a costed
-              proposal within 24 business hours. No obligation, no generic deck.
+              proposal within 24 business hours.
             </p>
 
             <div className="mt-7 space-y-3">
@@ -400,13 +391,6 @@ export default function CorporateWellnessPage() {
               </a>
             </div>
 
-            <div className="mt-5 flex items-start gap-3 rounded-xl bg-teal-mist p-4">
-              <Stethoscope className="mt-0.5 h-4 w-4 shrink-0 text-teal-deep" />
-              <p className="text-xs leading-relaxed text-ink/70">
-                Minimum engagement is 50 employees. Under that, our Gold membership with dependent
-                cover usually costs less than a corporate programme.
-              </p>
-            </div>
           </div>
 
           <div className="lg:col-span-7">
