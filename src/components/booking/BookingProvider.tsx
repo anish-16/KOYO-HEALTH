@@ -115,7 +115,7 @@ function BookingDrawer() {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-[70]"
+          className="fixed inset-0 z-[79]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

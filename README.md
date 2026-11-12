@@ -24,7 +24,7 @@ Demo login: any valid Indian mobile number, e.g. `98101 24477`. The OTP is retur
 
 | Area | Paths |
 | --- | --- |
-| Marketing | `/`, `/services`, `/services/[slug]`, `/packages`, `/packages/[slug]`, `/cities`, `/cities/[slug]`, `/doctors/[id]` |
+| Marketing | `/`, `/tests/pathology`, `/tests/imaging`, `/services`, `/services/[slug]`, `/packages`, `/packages/[slug]`, `/cities`, `/cities/[slug]`, `/doctors/[id]` |
 | Content | `/blogs`, `/blogs/[slug]`, `/reviews`, `/faqs`, `/about-us`, `/careers`, `/corporate-wellness`, `/partner`, `/contact`, `/membership`, `/legal/[slug]` |
 | Commerce | `/book` (5-step booking flow), `/login` |
 | Patient dashboard | `/dashboard`, `/bookings`, `/reports`, `/reports/[id]`, `/family`, `/wallet`, `/membership`, `/notifications`, `/settings` |
@@ -45,13 +45,15 @@ Demo login: any valid Indian mobile number, e.g. `98101 24477`. The OTP is retur
 - **The package catalogue is 18 clinician-designed packages** taken from the clinical master sheet (`src/data/packages.ts`). Each package is declared by the tests it contains; `testCount` is the sum of those tests' NABL reporting parameters, so a package can never advertise a number its own panel does not produce. `panels` groups the tests by discipline for the detail page, which is why the included-tests table can show "CBC — 24 params" next to "ESR — 1 param".
 - **Package visuals are human *and* category-specific.** `PackageArt` layers three things on one panel: a person whose subject matches the panel (a man for men's health, a woman for women's, a couple for fertility, an older adult for cancer screening, a family for the full body check), a category tone that sorts the catalogue visually, and a band with the discipline glyph, parameter count and report time. Equipment shots — a microscope, a lab bench, an empty boardroom — never appear on a card. Photographs are mapped per slug in `src/data/families.ts`; a package's subject is asserted by `tests/unit/people.test.ts`, which also proves no photograph repeats within four catalogue positions (so no two neighbouring cards in a three-column grid share a face). Photography lives in `public/images/people/` (self-hosted, so CSP stays `img-src 'self'`), declared with intrinsic dimensions. Sources are in [PHOTOGRAPHY.md](PHOTOGRAPHY.md).
 - **The filter matrix is derived, not written by hand.** `src/data/families.ts` groups the 18 packages into eight families and computes each tile's count and starting price from the catalogue, so the strip, the chips and the result count always agree — the counts sum to 18, and a tap on a tile is a real filter (`/packages?family=women`). There is no separate persona list: the homepage and `/packages` headings read their category count from `familyCountWord()`, so copy cannot drift from the catalogue, and the package-count in the site description comes from `packages.length` rather than a hand-typed number.
+- **Blood work and scans are two doors, not one filter.** `src/data/tests.ts` derives a second axis over the same catalogue: every individual test belongs to exactly one curated group inside one discipline (`pathology` or `imaging`), and any test a group does not name is bucketed by modality instead of disappearing. The header renders one floating panel per discipline, `/tests/pathology` and `/tests/imaging` list the same groups with prices and a Book action, and the homepage has two separate sections — a light list for labs, a dark tile grid for imaging. `tests/unit/discipline.test.ts` proves the groups partition the catalogue (no test listed twice, none missing) and that no blood test appears under imaging or vice versa.
+- **A test always has somewhere to be booked.** `TestDetailProvider` renders one floating panel for any individual study — price, discount, sample, fasting, chair time, report turnaround, collection mode, centre count, preparation steps, related studies, and Add/Book actions — and every price row on the site opens it by id through `TestTrigger` rather than navigating away. The panel sits above the cart (z-78 vs z-79) so adding a test reveals the cart instead of hiding it, and it closes itself before the mobile menu opens a study.
 - **The homepage hero is a live scene, not a still.** `HeroVisual` loops a sample through collection → analyser → clinician verification → report, with an animated ECG and a rotating scan sweep, and freezes on the finished state under `prefers-reduced-motion`.
 
 ## Verification
 
 ```bash
 npm run typecheck      # tsc --noEmit
-npm test               # 121 unit + integration + UI tests (vitest)
+npm test               # 134 unit + integration + UI tests (vitest)
 npm run build          # production build
 npm start -- -p 3200
 npm run test:security  # 39-check active audit against the running server
@@ -89,7 +91,7 @@ These are single-process numbers from a laptop-class box, not a promise about a 
 
 Walks every URL in `sitemap.xml` and checks the on-page contract: HTTP 200, unique 15–70 character titles, 70–165 character descriptions, absolute canonicals that match the page, complete Open Graph and Twitter cards, a resolvable `og:image`, one `<h1>`, indexability, and parseable JSON-LD. It follows the claude-seo checklist (the repo itself is a Claude Code prompt pack, not a library, so the rules are encoded here as executable checks).
 
-Current result: **3,206/3,206 checks passing across 161 pages.** This audit caught real defects: 209 failures on first run, including social cards silently dropped on 74 routes (Next replaces a parent's `openGraph` when a child defines one), blog cards pointing at a per-article image route that did not exist, descriptions up to 354 characters, and titles up to 83.
+Current result: **2,886/2,886 checks passing across 145 pages.** This audit caught real defects: 209 failures on first run, including social cards silently dropped on 74 routes (Next replaces a parent's `openGraph` when a child defines one), blog cards pointing at a per-article image route that did not exist, descriptions up to 354 characters, and titles up to 83.
 
 ## Known limitations
 

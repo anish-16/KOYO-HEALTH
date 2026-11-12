@@ -96,7 +96,7 @@ export default function ServicesPage() {
 
       <CTASection
         eyebrow="Need help choosing?"
-        title="A clinician can narrow 130 tests down to the three you actually need."
+        title={`A clinician can narrow ${catalogueStats.tests} tests down to the three you actually need.`}
         description="Free guidance call, no obligation. We will tell you when a test is unnecessary — that is part of the service."
         primaryHref="/contact"
         primaryLabel="Talk to a clinician"

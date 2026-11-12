@@ -4,21 +4,19 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'motion/react';
 import {
-  ArrowRight, ChevronDown, Menu, Phone, Search, ShoppingBag, UserRound, X, Sparkles, MapPin,
+  ArrowRight, ChevronDown, Menu, Phone, Search, ShoppingBag, UserRound, X, Sparkles,
 } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Logo } from '@/components/brand/Logo';
 import { ServiceIcon } from '@/components/brand/ServiceIcon';
 import { useBooking } from '@/components/booking/BookingProvider';
 import { SearchDialog, type SearchEntry } from './SearchDialog';
 import { CallbackButton } from './CallbackButton';
+import { DisciplineMenu } from './DisciplineMenu';
+import { TestTrigger } from '@/components/tests/TestDetailProvider';
 import { cn, formatINR } from '@/lib/utils';
 import { useSessionUser } from '@/lib/useSessionUser';
-
-type Group = {
-  label: string;
-  items: { slug: string; name: string; price: number; icon: string }[];
-};
+import { disciplines, testsInGroup } from '@/data/tests';
 
 const RESOURCES = [
   { href: '/blogs', label: 'Health insights', detail: 'Evidence-based articles from our clinicians' },
@@ -28,11 +26,14 @@ const RESOURCES = [
   { href: '/contact', label: 'Contact & support', detail: 'Talk to a care advisor' },
 ];
 
-export function Header({ groups, searchIndex }: { groups: Group[]; searchIndex: SearchEntry[] }) {
+export function Header({ searchIndex }: { searchIndex: SearchEntry[] }) {
   const pathname = usePathname();
   const { count, open: openCart } = useBooking();
   const { user } = useSessionUser();
-  const [mega, setMega] = useState<'tests' | 'resources' | null>(null);
+  const [mega, setMega] = useState<'blood' | 'scans' | 'resources' | null>(null);
+  // Hover already opened the panel, so the first click must not immediately
+  // close it again — only a second click (or moving away) does that.
+  const hoverOpened = useRef<string | null>(null);
   const [mobile, setMobile] = useState(false);
   const [search, setSearch] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -103,26 +104,48 @@ export function Header({ groups, searchIndex }: { groups: Group[]; searchIndex: 
           </Link>
 
           <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
-            <button
-              type="button"
-              aria-expanded={mega === 'tests'}
-              aria-controls="mega-tests"
-              onClick={() => setMega(mega === 'tests' ? null : 'tests')}
-              onMouseEnter={() => setMega('tests')}
-              className={cn(
-                'flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[0.8125rem] font-medium transition-colors',
-                mega === 'tests' ? 'bg-ink text-white' : 'text-ink/75 hover:bg-ink/[0.05] hover:text-ink',
-              )}
-            >
-              Tests &amp; scans <ChevronDown className={cn('h-3 w-3 transition-transform', mega === 'tests' && 'rotate-180')} />
-            </button>
-            <Link href="/packages" className="rounded-full px-3.5 py-2 text-[0.8125rem] font-medium text-ink/75 transition-colors hover:bg-ink/[0.05] hover:text-ink">
+            {disciplines.map((discipline) => {
+              const open = mega === (discipline.key === 'pathology' ? 'blood' : 'scans');
+              const key = discipline.key === 'pathology' ? 'blood' : 'scans';
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  aria-expanded={open}
+                  aria-controls={`mega-${key}`}
+                  onClick={() => {
+                    if (hoverOpened.current === key) {
+                      hoverOpened.current = null;
+                      setMega(key);
+                      return;
+                    }
+                    setMega(open ? null : key);
+                  }}
+                  onMouseEnter={() => {
+                    hoverOpened.current = key;
+                    setMega(key);
+                  }}
+                  className={cn(
+                    'flex items-center gap-1 rounded-full px-3 py-2 text-[0.8125rem] font-medium transition-colors',
+                    open
+                      ? discipline.key === 'pathology'
+                        ? 'bg-teal-mist text-teal-deep'
+                        : 'bg-ink text-white'
+                      : 'text-ink/75 hover:bg-ink/[0.05] hover:text-ink',
+                  )}
+                >
+                  {discipline.navLabel}
+                  <ChevronDown className={cn('h-3 w-3 transition-transform', open && 'rotate-180')} />
+                </button>
+              );
+            })}
+            <Link href="/packages" className="rounded-full px-3 py-2 text-[0.8125rem] font-medium text-ink/75 transition-colors hover:bg-ink/[0.05] hover:text-ink">
               Health packages
             </Link>
-            <Link href="/corporate-wellness" className="rounded-full px-3.5 py-2 text-[0.8125rem] font-medium text-ink/75 transition-colors hover:bg-ink/[0.05] hover:text-ink">
-              Corporate Wellness
+            <Link href="/corporate-wellness" className="hidden rounded-full px-3 py-2 text-[0.8125rem] font-medium text-ink/75 transition-colors hover:bg-ink/[0.05] hover:text-ink xl:block">
+              Corporate
             </Link>
-            <Link href="/membership" className="flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[0.8125rem] font-medium text-ink/75 transition-colors hover:bg-ink/[0.05] hover:text-ink">
+            <Link href="/membership" className="flex items-center gap-1.5 rounded-full px-3 py-2 text-[0.8125rem] font-medium text-ink/75 transition-colors hover:bg-ink/[0.05] hover:text-ink">
               <Sparkles className="h-3.5 w-3.5 text-gold" /> Gold
             </Link>
             <button
@@ -131,7 +154,7 @@ export function Header({ groups, searchIndex }: { groups: Group[]; searchIndex: 
               onClick={() => setMega(mega === 'resources' ? null : 'resources')}
               onMouseEnter={() => setMega('resources')}
               className={cn(
-                'flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[0.8125rem] font-medium transition-colors',
+                'flex items-center gap-1 rounded-full px-3 py-2 text-[0.8125rem] font-medium transition-colors',
                 mega === 'resources' ? 'bg-ink text-white' : 'text-ink/75 hover:bg-ink/[0.05] hover:text-ink',
               )}
             >
@@ -184,58 +207,21 @@ export function Header({ groups, searchIndex }: { groups: Group[]; searchIndex: 
         </div>
 
         <AnimatePresence>
-          {mega === 'tests' && (
+          {(mega === 'blood' || mega === 'scans') && (
             <motion.div
-              id="mega-tests"
+              key={mega}
+              id={`mega-${mega}`}
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute left-0 right-0 top-full hidden border-b border-line bg-paper shadow-lift lg:block"
+              className="absolute inset-x-0 top-full hidden px-4 pt-1 lg:block"
             >
-              <div className="shell grid grid-cols-12 gap-8 py-7">
-                <div className="col-span-9 grid grid-cols-3 gap-x-8 gap-y-7">
-                  {groups.map((group) => (
-                    <div key={group.label}>
-                      <p className="mb-2.5 text-2xs font-semibold uppercase tracking-[0.14em] text-teal-deep">
-                        {group.label}
-                      </p>
-                      <ul className="space-y-0.5">
-                        {group.items.map((item) => (
-                          <li key={item.slug}>
-                            <Link
-                              href={`/services/${item.slug}`}
-                              onClick={() => setMega(null)}
-                              className="group flex items-center gap-2 rounded-lg px-2 py-1.5 transition-colors hover:bg-teal-mist"
-                            >
-                              <ServiceIcon name={item.icon} className="h-3.5 w-3.5 text-teal" />
-                              <span className="flex-1 text-[0.8125rem] text-ink/80 group-hover:text-ink">{item.name}</span>
-                              <span className="tabular text-[0.625rem] text-ink/35">{formatINR(item.price)}</span>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-                <div className="col-span-3">
-                  <div className="surface-ink grain relative overflow-hidden rounded-2xl p-6 text-paper">
-                    <p className="eyebrow text-gold">Not sure what you need?</p>
-                    <p className="display mt-2 text-2xl leading-tight">A clinician will build the right panel.</p>
-                    <p className="mt-3 text-xs leading-relaxed text-paper/60">
-                      Free 10-minute guidance call. No test is recommended unless it changes a decision.
-                    </p>
-                    <CallbackButton label="Talk to a clinician" variant="gold" className="mt-5 w-full bg-gold text-ink hover:bg-paper" />
-                    <Link href="/services" className="mt-3 flex items-center justify-center gap-1.5 text-xs text-paper/70 hover:text-paper">
-                      Browse all 28 categories <ArrowRight className="h-3 w-3" />
-                    </Link>
-                  </div>
-                  <div className="mt-3 flex items-center gap-2 rounded-xl border border-line bg-white px-3 py-2.5 text-[0.6875rem] text-muted">
-                    <MapPin className="h-3.5 w-3.5 text-teal" />
-                    Home collection in 48 cities, 7 days a week
-                  </div>
-                </div>
-              </div>
+              <DisciplineMenu
+                discipline={mega === 'blood' ? disciplines[0] : disciplines[1]}
+                onNavigate={() => setMega(null)}
+                className="mx-auto max-w-5xl"
+              />
             </motion.div>
           )}
 
@@ -296,22 +282,50 @@ export function Header({ groups, searchIndex }: { groups: Group[]; searchIndex: 
 
                 <p className="mt-6 text-2xs font-semibold uppercase tracking-[0.14em] text-teal-deep">Tests &amp; scans</p>
                 <div className="mt-2 divide-y divide-line">
-                  {groups.map((group) => (
-                    <details key={group.label} className="group py-2">
+                  {disciplines.map((discipline) => (
+                    <details key={discipline.key} className="group py-2">
                       <summary className="flex cursor-pointer list-none items-center justify-between py-2 text-sm font-medium">
-                        {group.label}
+                        <span className="flex items-center gap-2">
+                          <ServiceIcon name={discipline.icon} className="h-3.5 w-3.5 text-teal" />
+                          {discipline.label}
+                          <span className="tabular text-[0.625rem] text-ink/35">{discipline.tests.length}</span>
+                        </span>
                         <ChevronDown className="h-4 w-4 text-ink/40 transition-transform group-open:rotate-180" />
                       </summary>
-                      <ul className="pb-2">
-                        {group.items.map((item) => (
-                          <li key={item.slug}>
-                            <Link href={`/services/${item.slug}`} className="flex items-center justify-between py-2 pl-1 text-[0.8125rem] text-ink/70">
-                              {item.name}
-                              <span className="tabular text-[0.6875rem] text-ink/35">{formatINR(item.price)}</span>
-                            </Link>
-                          </li>
+                      <div className="pb-2">
+                        {discipline.menuGroups.map((group) => (
+                          <div key={group.key} className="pt-2">
+                            <p className="text-[0.5625rem] font-semibold uppercase tracking-[0.12em] text-ink/40">
+                              {group.label}
+                            </p>
+                            <ul>
+                              {testsInGroup(group)
+                                .slice(0, 4)
+                                .map((test) => (
+                                  <li key={test.id}>
+                                    <TestTrigger
+                                      id={test.id}
+                                      onOpened={() => setMobile(false)}
+                                      className="flex w-full items-center justify-between gap-2 py-1.5 pl-1 text-left text-[0.8125rem] text-ink/70"
+                                    >
+                                      <span className="truncate">{test.name}</span>
+                                      <span className="tabular shrink-0 text-[0.6875rem] text-ink/35">
+                                        {formatINR(test.price)}
+                                      </span>
+                                    </TestTrigger>
+                                  </li>
+                                ))}
+                            </ul>
+                          </div>
                         ))}
-                      </ul>
+                        <Link
+                          href={`/tests/${discipline.slug}`}
+                          className="mt-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold text-teal-deep"
+                        >
+                          All {discipline.tests.length} {discipline.key === 'pathology' ? 'blood tests' : 'scans'}
+                          <ArrowRight className="h-3 w-3" />
+                        </Link>
+                      </div>
                     </details>
                   ))}
                 </div>

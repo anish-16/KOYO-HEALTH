@@ -24,9 +24,12 @@ const COMPANY = [
   { href: '/corporate-wellness', label: 'Corporate wellness' },
 ];
 
+const LAB_CATEGORIES = ['pathology', 'pap-smear'];
+const IMAGING_CATEGORIES = ['mri', 'ct', 'ultrasound', 'x-ray', 'echo', 'pet-scan'];
+
 export function Footer() {
-  const topServices = services.slice(0, 8);
-  const imaging = services.slice(0, 7);
+  const labServices = LAB_CATEGORIES.map((slug) => services.find((s) => s.slug === slug)!);
+  const imagingServices = IMAGING_CATEGORIES.map((slug) => services.find((s) => s.slug === slug)!);
 
   return (
     <footer className="surface-ink grain relative mt-24 overflow-hidden text-paper">
@@ -70,8 +73,8 @@ export function Footer() {
           </div>
 
           <div className="grid gap-9 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-4">
-            <FooterColumn title="Our services" links={[...topServices.map((s) => ({ href: `/services/${s.slug}`, label: s.name })), { href: '/services', label: 'View all 28 →' }]} />
-            <FooterColumn title="Imaging" links={[...imaging.map((s) => ({ href: `/services/${s.slug}`, label: s.shortName })), { href: '/services?filter=Radiology', label: 'All imaging →' }]} />
+            <FooterColumn title="Blood tests" links={[{ href: '/tests/pathology', label: 'All blood tests →' }, ...labServices.map((s) => ({ href: `/services/${s.slug}`, label: s.name })), { href: '/packages', label: 'Health packages' }, { href: '/services', label: 'All 28 categories →' }]} />
+            <FooterColumn title="Scans & imaging" links={[{ href: '/tests/imaging', label: 'All scans →' }, ...imagingServices.map((s) => ({ href: `/services/${s.slug}`, label: s.shortName }))]} />
             <FooterColumn title="Company" links={COMPANY} />
             <FooterColumn title="Support & help" links={SUPPORT} />
           </div>

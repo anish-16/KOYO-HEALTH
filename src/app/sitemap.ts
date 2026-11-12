@@ -4,6 +4,7 @@ import { packages } from '@/data/packages';
 import { cities } from '@/data/cities';
 import { blogs } from '@/data/blogs';
 import { doctors } from '@/data/company';
+import { disciplines } from '@/data/tests';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://koyohealth.in';
 
@@ -13,6 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const core: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, lastModified: now, changeFrequency: 'daily', priority: 1 },
     { url: `${SITE_URL}/services`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    ...disciplines.map<MetadataRoute.Sitemap[number]>((discipline) => ({
+      url: `${SITE_URL}/tests/${discipline.slug}`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    })),
     { url: `${SITE_URL}/packages`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE_URL}/cities`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/blogs`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },

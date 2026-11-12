@@ -1,13 +1,15 @@
 import {
-  Activity, AudioWaveform, Bone, Brain, Crosshair, Droplets, Ear, Eye, Footprints,
-  HeartPulse, Microscope, Moon, Radio, Ribbon, Scan, Stethoscope, Watch, Waves, Wind, Zap,
+  Activity, AudioWaveform, Bone, Brain, Crosshair, Droplets, Ear, Eye, FlaskConical, Footprints,
+  HeartPulse, Microscope, Moon, Radio, Ribbon, Scan, ShieldCheck, Stethoscope, Sun, Thermometer,
+  Watch, Waves, Wind, Zap,
   type LucideIcon,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const ICONS: Record<string, LucideIcon> = {
-  Activity, AudioWaveform, Bone, Brain, Crosshair, Droplets, Ear, Eye, Footprints,
-  HeartPulse, Microscope, Moon, Radio, Ribbon, Scan, Stethoscope, Watch, Waves, Wind, Zap,
+  Activity, AudioWaveform, Bone, Brain, Crosshair, Droplets, Ear, Eye, FlaskConical, Footprints,
+  HeartPulse, Microscope, Moon, Radio, Ribbon, Scan, ShieldCheck, Stethoscope, Sun, Thermometer,
+  Watch, Waves, Wind, Zap,
 };
 
 export function ServiceIcon({

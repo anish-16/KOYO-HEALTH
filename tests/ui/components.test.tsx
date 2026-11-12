@@ -1,11 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Accordion } from '@/components/ui/Accordion';
 import { Sparkline } from '@/components/dashboard/Sparkline';
 import { Badge, Stars, Breadcrumbs } from '@/components/ui/Primitives';
 import { AddToBooking } from '@/components/services/AddToBooking';
 import { BookingProvider } from '@/components/booking/BookingProvider';
+import { TestDetailProvider, TestTrigger } from '@/components/tests/TestDetailProvider';
 
 const items = [
   { q: 'Do I need to fast?', a: 'Only for lipid and glucose tests.' },
@@ -70,6 +71,54 @@ describe('AddToBooking', () => {
     await user.click(removeButton);
 
     expect(screen.getByRole('button', { name: /Add MRI Brain \(Plain\) to booking/ })).toHaveAttribute('aria-pressed', 'false');
+  });
+});
+
+describe('TestDetailProvider', () => {
+  const trigger = (
+    <BookingProvider>
+      <TestDetailProvider>
+        <TestTrigger id="pathology/complete-blood-count-cbc">Complete Blood Count (CBC)</TestTrigger>
+      </TestDetailProvider>
+    </BookingProvider>
+  );
+
+  it('opens a floating panel with the test, its facts and a booking action', async () => {
+    const user = userEvent.setup();
+    render(trigger);
+
+    expect(screen.queryByRole('dialog', { name: /full test details/ })).not.toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Complete Blood Count (CBC)' }));
+
+    const panel = screen.getByRole('dialog', { name: /Complete Blood Count \(CBC\) — full test details/ });
+    expect(panel).toBeInTheDocument();
+    expect(screen.getByText('Everyday & organ function · Pathology')).toBeInTheDocument();
+    expect(screen.getByText('268 accredited')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Add Complete Blood Count \(CBC\) to booking/ })).toBeInTheDocument();
+  });
+
+  it('adds the test to the booking from inside the panel', async () => {
+    const user = userEvent.setup();
+    render(trigger);
+
+    await user.click(screen.getByRole('button', { name: 'Complete Blood Count (CBC)' }));
+    await user.click(screen.getByRole('button', { name: /Add Complete Blood Count \(CBC\) to booking/ }));
+
+    expect(screen.getByRole('dialog', { name: 'Your booking' })).toBeInTheDocument();
+    expect(screen.getByText('1 test added')).toBeInTheDocument();
+  });
+
+  it('closes on Escape so the page underneath is reachable again', async () => {
+    const user = userEvent.setup();
+    render(trigger);
+
+    await user.click(screen.getByRole('button', { name: 'Complete Blood Count (CBC)' }));
+    await user.keyboard('{Escape}');
+
+    // The panel animates out, so it leaves the DOM a frame after Escape.
+    await waitFor(() =>
+      expect(screen.queryByRole('dialog', { name: /full test details/ })).not.toBeInTheDocument(),
+    );
   });
 });
 

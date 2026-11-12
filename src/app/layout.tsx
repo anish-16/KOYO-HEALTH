@@ -6,7 +6,8 @@ import { Header } from '@/components/site/Header';
 import { Footer } from '@/components/site/Footer';
 import { BookingProvider } from '@/components/booking/BookingProvider';
 import { CallbackButton } from '@/components/site/CallbackButton';
-import { services, modalities, allTests } from '@/data/services';
+import { TestDetailProvider } from '@/components/tests/TestDetailProvider';
+import { allTests } from '@/data/services';
 import { packages } from '@/data/packages';
 import { packageFamilies } from '@/data/families';
 import { companyStats } from '@/data/company';
@@ -65,13 +66,6 @@ export const viewport: Viewport = {
   initialScale: 1,
   colorScheme: 'light',
 };
-
-const groups = modalities.map((modality) => ({
-  label: modality.label,
-  items: services
-    .filter((s) => s.modality === modality.key)
-    .map((s) => ({ slug: s.slug, name: s.name, price: s.startingPrice, icon: s.icon })),
-}));
 
 const searchIndex = allTests.map((test) => ({
   id: test.id,
@@ -145,16 +139,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <BookingProvider>
-          <Header groups={groups} searchIndex={searchIndex} />
-          <main id="main">{children}</main>
-          <Footer />
-          <div className="fixed bottom-5 right-5 z-40 hidden md:block">
-            <CallbackButton
-              label="Need help?"
-              className="bg-ink text-white shadow-lift hover:bg-teal-deep"
-              variant="ghost"
-            />
-          </div>
+          <TestDetailProvider>
+            <Header searchIndex={searchIndex} />
+            <main id="main">{children}</main>
+            <Footer />
+            <div className="fixed bottom-5 right-5 z-40 hidden md:block">
+              <CallbackButton
+                label="Need help?"
+                className="bg-ink text-white shadow-lift hover:bg-teal-deep"
+                variant="ghost"
+              />
+            </div>
+          </TestDetailProvider>
         </BookingProvider>
       </body>
     </html>

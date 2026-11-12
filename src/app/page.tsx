@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import { HeroSearch } from '@/components/home/HeroSearch';
 import { HeroVisual } from '@/components/home/HeroVisual';
-import { CategoryExplorer, type ExplorerService } from '@/components/home/CategoryExplorer';
+import { DisciplineSections } from '@/components/home/DisciplineSections';
 import { PackageCard } from '@/components/cards/PackageCard';
 import { BlogCard } from '@/components/cards/BlogCard';
 import { Counter } from '@/components/ui/Counter';
@@ -17,7 +17,8 @@ import { FamilyStrip } from '@/components/packages/FamilyStrip';
 import { familyCountWord } from '@/data/families';
 import { PersonPhoto } from '@/components/media/PersonPhoto';
 import { people } from '@/data/people';
-import { services, allTests } from '@/data/services';
+import { allTests } from '@/data/services';
+import { disciplineStats } from '@/data/tests';
 import { packages } from '@/data/packages';
 import { blogs } from '@/data/blogs';
 import { cities, topCities } from '@/data/cities';
@@ -41,18 +42,6 @@ const searchIndex = allTests.map((t) => ({
   serviceSlug: t.serviceSlug,
   price: t.price,
   aliases: `${t.serviceSlug} ${t.modality}`,
-}));
-
-const explorerItems: ExplorerService[] = services.map((s) => ({
-  slug: s.slug,
-  name: s.name,
-  tagline: s.tagline,
-  modality: s.modality,
-  icon: s.icon,
-  startingPrice: s.startingPrice,
-  mrp: s.mrp,
-  tests: s.tests.length,
-  isPopular: s.isPopular,
 }));
 
 const popularPackages = packages.filter((p) => p.isPopular).slice(0, 3);
@@ -110,7 +99,7 @@ export default function HomePage() {
             </h1>
 
             <p className="mt-6 max-w-xl text-[0.9375rem] leading-relaxed text-muted">
-              28 specialities, 120+ individual tests and 268 accredited centres in 48 cities.
+              28 specialities, {disciplineStats.tests} individual tests and 268 accredited centres in 48 cities.
               Free home collection, radiologist-reviewed reports, and a care team that answers
               within five minutes.
             </p>
@@ -221,20 +210,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CATEGORIES */}
-      <section className="shell py-20 lg:py-28" id="categories">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Test catalogue"
-            title={<>28 specialities. One standard of care.</>}
-            description="From a ₹99 CBC to a whole-body PET-CT, every study follows the same protocol: accredited equipment, consultant review, and a report written for humans."
-            action={<Link href="/services" className="btn-outline btn-sm">All categories <ArrowUpRight className="h-3.5 w-3.5" /></Link>}
-          />
-        </Reveal>
-        <div className="mt-9">
-          <CategoryExplorer items={explorerItems} />
-        </div>
-      </section>
+      {/* BLOOD TESTS + SCANS — two separate doors into the catalogue */}
+      <DisciplineSections />
 
       {/* PACKAGES */}
       <section className="bg-sand/50 py-20 lg:py-28">
