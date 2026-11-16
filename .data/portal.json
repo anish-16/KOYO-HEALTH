@@ -1,0 +1,1996 @@
+{
+  "version": 1,
+  "partners": [
+    {
+      "id": "PTR-01",
+      "name": "Meridian Tech",
+      "code": "MRC-4417",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "contactName": "Ananya Rao",
+      "contactEmail": "ananya.rao@meridiantech.example",
+      "contactPhone": "9810124477",
+      "gstin": "29AABCM1234F1Z5",
+      "status": "Active",
+      "since": "2024-02-19",
+      "headcount": 412,
+      "accountManager": "Ritika Menon",
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "billingCycle": "Monthly",
+      "accessKey": "MERC-2026",
+      "createdAt": "2025-10-09T04:30:00.000Z"
+    },
+    {
+      "id": "PTR-02",
+      "name": "Northline Motors",
+      "code": "NLM-9021",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "contactName": "Ganesh Shinde",
+      "contactEmail": "ganesh.shinde@northline.example",
+      "contactPhone": "9820145520",
+      "gstin": "27AABCN9876G1Z2",
+      "status": "Active",
+      "since": "2023-08-04",
+      "headcount": 268,
+      "accountManager": "Arjun Patel",
+      "modes": [
+        "On-site",
+        "Centre Visit"
+      ],
+      "billingCycle": "Per batch",
+      "accessKey": "NORTH-2026",
+      "createdAt": "2025-07-01T04:30:00.000Z"
+    },
+    {
+      "id": "PTR-03",
+      "name": "Arcadia Finance Group",
+      "code": "ARC-7734",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "contactName": "Riya Sethi",
+      "contactEmail": "riya.sethi@arcadia.example",
+      "contactPhone": "9820331144",
+      "gstin": "27AABCA4567H1Z9",
+      "status": "Active",
+      "since": "2025-01-12",
+      "headcount": 96,
+      "accountManager": "Ritika Menon",
+      "modes": [
+        "Home Collection",
+        "Centre Visit"
+      ],
+      "billingCycle": "Quarterly",
+      "accessKey": "ARCA-2026",
+      "createdAt": "2026-04-07T04:30:00.000Z"
+    },
+    {
+      "id": "PTR-04",
+      "name": "Selene Logistics",
+      "code": "SEL-2210",
+      "city": "Gurugram",
+      "state": "Haryana",
+      "contactName": "Vivek Chauhan",
+      "contactEmail": "vivek.chauhan@selene.example",
+      "contactPhone": "9811167744",
+      "status": "Onboarding",
+      "since": "2026-11-01",
+      "headcount": 540,
+      "accountManager": "Arjun Patel",
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "billingCycle": "Monthly",
+      "accessKey": "SELE-2026",
+      "createdAt": "2026-11-01T04:30:00.000Z"
+    }
+  ],
+  "catalogue": [
+    {
+      "id": "CAT-2641EA",
+      "partnerId": "PTR-01",
+      "kind": "Pathology",
+      "name": "Complete Blood Count (CBC)",
+      "refId": "pathology/complete-blood-count-cbc",
+      "listPrice": 299,
+      "rate": 240,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 8,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-74DE25",
+      "partnerId": "PTR-01",
+      "kind": "Pathology",
+      "name": "Lipid Profile",
+      "refId": "pathology/lipid-profile",
+      "listPrice": 499,
+      "rate": 400,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 12,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-132ECF",
+      "partnerId": "PTR-01",
+      "kind": "Pathology",
+      "name": "HbA1c (Glycated Haemoglobin)",
+      "refId": "pathology/hba1c-glycated-haemoglobin",
+      "listPrice": 449,
+      "rate": 360,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 12,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-6D109A",
+      "partnerId": "PTR-01",
+      "kind": "Pathology",
+      "name": "Liver Function Test (LFT)",
+      "refId": "pathology/liver-function-test-lft",
+      "listPrice": 549,
+      "rate": 450,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 12,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-E39BA9",
+      "partnerId": "PTR-01",
+      "kind": "Pathology",
+      "name": "Kidney Function Test (KFT)",
+      "refId": "pathology/kidney-function-test-kft",
+      "listPrice": 549,
+      "rate": 450,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 12,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-94CCB8",
+      "partnerId": "PTR-01",
+      "kind": "Pathology",
+      "name": "Thyroid Profile (T3, T4, TSH)",
+      "refId": "pathology/thyroid-profile-t3-t4-tsh",
+      "listPrice": 599,
+      "rate": 490,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 12,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-F19439",
+      "partnerId": "PTR-01",
+      "kind": "Pathology",
+      "name": "Vitamin D (25-OH)",
+      "refId": "pathology/vitamin-d-25-oh",
+      "listPrice": 899,
+      "rate": 760,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 24,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-C6490F",
+      "partnerId": "PTR-01",
+      "kind": "Pathology",
+      "name": "Vitamin B12",
+      "refId": "pathology/vitamin-b12",
+      "listPrice": 799,
+      "rate": 680,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 24,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-4EB24E",
+      "partnerId": "PTR-01",
+      "kind": "Pathology",
+      "name": "Urine Routine & Microscopy",
+      "refId": "pathology/urine-routine-microscopy",
+      "listPrice": 249,
+      "rate": 200,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 12,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-F3B52A",
+      "partnerId": "PTR-01",
+      "kind": "Radiology & imaging",
+      "name": "12-Lead ECG (Resting)",
+      "refId": "ecg/12-lead-ecg-resting",
+      "listPrice": 249,
+      "rate": 200,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 1,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-017DDD",
+      "partnerId": "PTR-01",
+      "kind": "Radiology & imaging",
+      "name": "X-Ray Chest (PA)",
+      "refId": "x-ray/x-ray-chest-pa",
+      "listPrice": 249,
+      "rate": 200,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 1.5,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-8A6AA1",
+      "partnerId": "PTR-01",
+      "kind": "Radiology & imaging",
+      "name": "USG Abdomen & Pelvis",
+      "refId": "ultrasound/usg-abdomen-pelvis",
+      "listPrice": 699,
+      "rate": 590,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 2,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-4AF07E",
+      "partnerId": "PTR-01",
+      "kind": "Health package",
+      "name": "Full Body Checkup — Flagship",
+      "refId": "package/full-body-checkup",
+      "listPrice": 1649,
+      "rate": 1320,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 24,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-C9BD64",
+      "partnerId": "PTR-01",
+      "kind": "Health package",
+      "name": "Comprehensive Executive Health Check — Male (30–50)",
+      "refId": "package/executive-health-check-male",
+      "listPrice": 1449,
+      "rate": 1160,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 24,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-4BB9BC",
+      "partnerId": "PTR-01",
+      "kind": "Health package",
+      "name": "Women's Wellness Premium",
+      "refId": "package/womens-wellness-premium",
+      "listPrice": 1249,
+      "rate": 1020,
+      "modes": [
+        "Home Collection",
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 24,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-60C445",
+      "partnerId": "PTR-01",
+      "kind": "Custom package",
+      "name": "Meridian Pre-employment Panel",
+      "includes": [
+        "CBC",
+        "LFT",
+        "KFT",
+        "Urine routine",
+        "Chest X-ray (PA)",
+        "Vision acuity"
+      ],
+      "listPrice": 1450,
+      "rate": 1090,
+      "modes": [
+        "Centre Visit",
+        "On-site"
+      ],
+      "tatHours": 24,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-C3FC0F",
+      "partnerId": "PTR-02",
+      "kind": "Pathology",
+      "name": "Complete Blood Count (CBC)",
+      "refId": "pathology/complete-blood-count-cbc",
+      "listPrice": 299,
+      "rate": 220,
+      "modes": [
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 8,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-BA5A30",
+      "partnerId": "PTR-02",
+      "kind": "Pathology",
+      "name": "Liver Function Test (LFT)",
+      "refId": "pathology/liver-function-test-lft",
+      "listPrice": 549,
+      "rate": 400,
+      "modes": [
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 12,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-3D2D01",
+      "partnerId": "PTR-02",
+      "kind": "Pathology",
+      "name": "Kidney Function Test (KFT)",
+      "refId": "pathology/kidney-function-test-kft",
+      "listPrice": 549,
+      "rate": 400,
+      "modes": [
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 12,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-78D284",
+      "partnerId": "PTR-02",
+      "kind": "Pathology",
+      "name": "Lipid Profile",
+      "refId": "pathology/lipid-profile",
+      "listPrice": 499,
+      "rate": 360,
+      "modes": [
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 12,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-7557B5",
+      "partnerId": "PTR-02",
+      "kind": "Pathology",
+      "name": "Urine Routine & Microscopy",
+      "refId": "pathology/urine-routine-microscopy",
+      "listPrice": 249,
+      "rate": 180,
+      "modes": [
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 12,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-ADCFF6",
+      "partnerId": "PTR-02",
+      "kind": "Pathology",
+      "name": "Blood Group & Rh Typing",
+      "refId": "pathology/blood-group-rh-typing",
+      "listPrice": 249,
+      "rate": 190,
+      "modes": [
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 8,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-D079F4",
+      "partnerId": "PTR-02",
+      "kind": "Radiology & imaging",
+      "name": "X-Ray Chest (PA)",
+      "refId": "x-ray/x-ray-chest-pa",
+      "listPrice": 249,
+      "rate": 190,
+      "modes": [
+        "Centre Visit"
+      ],
+      "tatHours": 1.5,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-C00E90",
+      "partnerId": "PTR-02",
+      "kind": "Radiology & imaging",
+      "name": "12-Lead ECG (Resting)",
+      "refId": "ecg/12-lead-ecg-resting",
+      "listPrice": 249,
+      "rate": 190,
+      "modes": [
+        "Centre Visit"
+      ],
+      "tatHours": 1,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-9C1E67",
+      "partnerId": "PTR-02",
+      "kind": "Radiology & imaging",
+      "name": "Transthoracic Echo (2D)",
+      "refId": "echo/transthoracic-echo-2d",
+      "listPrice": 1499,
+      "rate": 1200,
+      "modes": [
+        "Centre Visit"
+      ],
+      "tatHours": 4,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-402401",
+      "partnerId": "PTR-02",
+      "kind": "Custom package",
+      "name": "Factory Fitness Panel (Factories Act)",
+      "includes": [
+        "CBC",
+        "LFT",
+        "KFT",
+        "Urine routine",
+        "Chest X-ray (PA)",
+        "Audiometry",
+        "Vision acuity"
+      ],
+      "listPrice": 2350,
+      "rate": 1690,
+      "modes": [
+        "On-site",
+        "Centre Visit"
+      ],
+      "tatHours": 24,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-068C10",
+      "partnerId": "PTR-03",
+      "kind": "Pathology",
+      "name": "Lipid Profile",
+      "refId": "pathology/lipid-profile",
+      "listPrice": 499,
+      "rate": 390,
+      "modes": [
+        "Home Collection",
+        "Centre Visit"
+      ],
+      "tatHours": 12,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-99905C",
+      "partnerId": "PTR-03",
+      "kind": "Pathology",
+      "name": "HbA1c (Glycated Haemoglobin)",
+      "refId": "pathology/hba1c-glycated-haemoglobin",
+      "listPrice": 449,
+      "rate": 350,
+      "modes": [
+        "Home Collection",
+        "Centre Visit"
+      ],
+      "tatHours": 12,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-FC9DEF",
+      "partnerId": "PTR-03",
+      "kind": "Pathology",
+      "name": "Thyroid Profile (T3, T4, TSH)",
+      "refId": "pathology/thyroid-profile-t3-t4-tsh",
+      "listPrice": 599,
+      "rate": 480,
+      "modes": [
+        "Home Collection",
+        "Centre Visit"
+      ],
+      "tatHours": 12,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-F79278",
+      "partnerId": "PTR-03",
+      "kind": "Pathology",
+      "name": "Vitamin D (25-OH)",
+      "refId": "pathology/vitamin-d-25-oh",
+      "listPrice": 899,
+      "rate": 740,
+      "modes": [
+        "Home Collection",
+        "Centre Visit"
+      ],
+      "tatHours": 24,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-8D0CF4",
+      "partnerId": "PTR-03",
+      "kind": "Radiology & imaging",
+      "name": "12-Lead ECG (Resting)",
+      "refId": "ecg/12-lead-ecg-resting",
+      "listPrice": 249,
+      "rate": 200,
+      "modes": [
+        "Centre Visit"
+      ],
+      "tatHours": 1,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-14470C",
+      "partnerId": "PTR-03",
+      "kind": "Radiology & imaging",
+      "name": "Treadmill Test (Bruce Protocol)",
+      "refId": "tmt/treadmill-test-bruce-protocol",
+      "listPrice": 1499,
+      "rate": 1230,
+      "modes": [
+        "Centre Visit"
+      ],
+      "tatHours": 4,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-6E979B",
+      "partnerId": "PTR-03",
+      "kind": "Radiology & imaging",
+      "name": "Transthoracic Echo (2D)",
+      "refId": "echo/transthoracic-echo-2d",
+      "listPrice": 1499,
+      "rate": 1230,
+      "modes": [
+        "Centre Visit"
+      ],
+      "tatHours": 4,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-EC6F71",
+      "partnerId": "PTR-03",
+      "kind": "Health package",
+      "name": "Comprehensive Executive Health Check — Male (30–50)",
+      "refId": "package/executive-health-check-male",
+      "listPrice": 1449,
+      "rate": 1130,
+      "modes": [
+        "Home Collection",
+        "Centre Visit"
+      ],
+      "tatHours": 24,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    },
+    {
+      "id": "CAT-8BE0CF",
+      "partnerId": "PTR-03",
+      "kind": "Health package",
+      "name": "Comprehensive Executive Health Check — Female (30–50)",
+      "refId": "package/executive-health-check-female",
+      "listPrice": 1549,
+      "rate": 1210,
+      "modes": [
+        "Home Collection",
+        "Centre Visit"
+      ],
+      "tatHours": 24,
+      "active": true,
+      "createdAt": "2026-07-16T04:30:00.000Z"
+    }
+  ],
+  "employees": [
+    {
+      "id": "EST-B7F759",
+      "partnerId": "PTR-01",
+      "code": "EMP-2041",
+      "name": "Aarav Sharma",
+      "age": 34,
+      "gender": "Male",
+      "department": "Engineering",
+      "location": "Bengaluru — Whitefield",
+      "phone": "9810124401",
+      "email": "aarav.emp-2041@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-010248",
+      "partnerId": "PTR-01",
+      "code": "EMP-2042",
+      "name": "Diya Nair",
+      "age": 29,
+      "gender": "Female",
+      "department": "Product",
+      "location": "Bengaluru — Indiranagar",
+      "phone": "9810124402",
+      "email": "diya.emp-2042@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-F3B7D5",
+      "partnerId": "PTR-01",
+      "code": "EMP-2043",
+      "name": "Rohan Iyer",
+      "age": 41,
+      "gender": "Male",
+      "department": "Finance",
+      "location": "Bengaluru — Koramangala",
+      "phone": "9810124403",
+      "email": "rohan.emp-2043@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-8E4A6A",
+      "partnerId": "PTR-01",
+      "code": "EMP-2044",
+      "name": "Sneha Kulkarni",
+      "age": 26,
+      "gender": "Female",
+      "department": "Design",
+      "location": "Bengaluru — HSR Layout",
+      "phone": "9810124404",
+      "email": "sneha.emp-2044@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-126746",
+      "partnerId": "PTR-01",
+      "code": "EMP-2045",
+      "name": "Vikram Desai",
+      "age": 38,
+      "gender": "Male",
+      "department": "Engineering",
+      "location": "Bengaluru — Whitefield",
+      "phone": "9810124405",
+      "email": "vikram.emp-2045@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-A2D1F9",
+      "partnerId": "PTR-01",
+      "code": "EMP-2046",
+      "name": "Meera Krishnan",
+      "age": 45,
+      "gender": "Female",
+      "department": "People",
+      "location": "Bengaluru — Jayanagar",
+      "phone": "9810124406",
+      "email": "meera.emp-2046@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-CF6BFF",
+      "partnerId": "PTR-01",
+      "code": "EMP-2047",
+      "name": "Aditya Bose",
+      "age": 31,
+      "gender": "Male",
+      "department": "Sales",
+      "location": "Bengaluru — Indiranagar",
+      "phone": "9810124407",
+      "email": "aditya.emp-2047@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-5C6923",
+      "partnerId": "PTR-01",
+      "code": "EMP-2048",
+      "name": "Nisha Verma",
+      "age": 36,
+      "gender": "Female",
+      "department": "Engineering",
+      "location": "Bengaluru — Marathahalli",
+      "phone": "9810124408",
+      "email": "nisha.emp-2048@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-ED8D0A",
+      "partnerId": "PTR-01",
+      "code": "EMP-2049",
+      "name": "Karthik Reddy",
+      "age": 52,
+      "gender": "Male",
+      "department": "Leadership",
+      "location": "Bengaluru — Koramangala",
+      "phone": "9810124409",
+      "email": "karthik.emp-2049@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-A54486",
+      "partnerId": "PTR-01",
+      "code": "EMP-2050",
+      "name": "Priya Menon",
+      "age": 28,
+      "gender": "Female",
+      "department": "Marketing",
+      "location": "Bengaluru — HSR Layout",
+      "phone": "9810124410",
+      "email": "priya.emp-2050@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-3A9BCF",
+      "partnerId": "PTR-02",
+      "code": "NLM-1101",
+      "name": "Suresh Pawar",
+      "age": 44,
+      "gender": "Male",
+      "department": "Assembly",
+      "location": "Pune — Chakan Plant",
+      "phone": "9820145501",
+      "email": "suresh.nlm-1101@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-1756D2",
+      "partnerId": "PTR-02",
+      "code": "NLM-1102",
+      "name": "Anita Jadhav",
+      "age": 33,
+      "gender": "Female",
+      "department": "Quality",
+      "location": "Pune — Chakan Plant",
+      "phone": "9820145502",
+      "email": "anita.nlm-1102@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-20089E",
+      "partnerId": "PTR-02",
+      "code": "NLM-1103",
+      "name": "Ganesh Shinde",
+      "age": 39,
+      "gender": "Male",
+      "department": "Maintenance",
+      "location": "Pune — Chakan Plant",
+      "phone": "9820145503",
+      "email": "ganesh.nlm-1103@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-15EFE7",
+      "partnerId": "PTR-02",
+      "code": "NLM-1104",
+      "name": "Pooja Deshmukh",
+      "age": 27,
+      "gender": "Female",
+      "department": "Stores",
+      "location": "Pune — Ranjangaon",
+      "phone": "9820145504",
+      "email": "pooja.nlm-1104@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-EBA913",
+      "partnerId": "PTR-02",
+      "code": "NLM-1105",
+      "name": "Rahul Kulkarni",
+      "age": 46,
+      "gender": "Male",
+      "department": "Logistics",
+      "location": "Pune — Ranjangaon",
+      "phone": "9820145505",
+      "email": "rahul.nlm-1105@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-FA9B40",
+      "partnerId": "PTR-02",
+      "code": "NLM-1106",
+      "name": "Farhan Shaikh",
+      "age": 31,
+      "gender": "Male",
+      "department": "Paint shop",
+      "location": "Pune — Chakan Plant",
+      "phone": "9820145506",
+      "email": "farhan.nlm-1106@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-555B72",
+      "partnerId": "PTR-02",
+      "code": "NLM-1107",
+      "name": "Snehal More",
+      "age": 35,
+      "gender": "Female",
+      "department": "Human Resources",
+      "location": "Pune — Head office",
+      "phone": "9820145507",
+      "email": "snehal.nlm-1107@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-3D5F80",
+      "partnerId": "PTR-02",
+      "code": "NLM-1108",
+      "name": "Deepak Patil",
+      "age": 50,
+      "gender": "Male",
+      "department": "Safety",
+      "location": "Pune — Chakan Plant",
+      "phone": "9820145508",
+      "email": "deepak.nlm-1108@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-28717F",
+      "partnerId": "PTR-03",
+      "code": "ARC-3301",
+      "name": "Ishaan Kapoor",
+      "age": 42,
+      "gender": "Male",
+      "department": "Trading",
+      "location": "Mumbai — BKC",
+      "phone": "9820331101",
+      "email": "ishaan.arc-3301@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-9A5ED3",
+      "partnerId": "PTR-03",
+      "code": "ARC-3302",
+      "name": "Riya Sethi",
+      "age": 34,
+      "gender": "Female",
+      "department": "Compliance",
+      "location": "Mumbai — BKC",
+      "phone": "9820331102",
+      "email": "riya.arc-3302@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-4F4BB7",
+      "partnerId": "PTR-03",
+      "code": "ARC-3303",
+      "name": "Manav Bhatia",
+      "age": 47,
+      "gender": "Male",
+      "department": "Wealth",
+      "location": "Mumbai — Lower Parel",
+      "phone": "9820331103",
+      "email": "manav.arc-3303@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-66C05B",
+      "partnerId": "PTR-03",
+      "code": "ARC-3304",
+      "name": "Kavya Shetty",
+      "age": 30,
+      "gender": "Female",
+      "department": "Risk",
+      "location": "Mumbai — BKC",
+      "phone": "9820331104",
+      "email": "kavya.arc-3304@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-3FF3A0",
+      "partnerId": "PTR-03",
+      "code": "ARC-3305",
+      "name": "Arjun Malhotra",
+      "age": 55,
+      "gender": "Male",
+      "department": "Leadership",
+      "location": "Mumbai — BKC",
+      "phone": "9820331105",
+      "email": "arjun.arc-3305@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    },
+    {
+      "id": "EST-BC6FB7",
+      "partnerId": "PTR-03",
+      "code": "ARC-3306",
+      "name": "Tanvi Joshi",
+      "age": 26,
+      "gender": "Female",
+      "department": "Operations",
+      "location": "Mumbai — Lower Parel",
+      "phone": "9820331106",
+      "email": "tanvi.arc-3306@partner.example",
+      "addedAt": "2026-08-15T04:30:00.000Z"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "PB-A9D06C",
+      "partnerId": "PTR-01",
+      "employeeId": "EST-B7F759",
+      "employeeName": "Aarav Sharma",
+      "employeeCode": "EMP-2041",
+      "department": "Engineering",
+      "items": [
+        {
+          "id": "CAT-2641EA",
+          "name": "Complete Blood Count (CBC)",
+          "kind": "Pathology",
+          "rate": 240
+        },
+        {
+          "id": "CAT-132ECF",
+          "name": "HbA1c (Glycated Haemoglobin)",
+          "kind": "Pathology",
+          "rate": 360
+        },
+        {
+          "id": "CAT-74DE25",
+          "name": "Lipid Profile",
+          "kind": "Pathology",
+          "rate": 400
+        }
+      ],
+      "total": 1000,
+      "date": "2026-10-26",
+      "mode": "Home Collection",
+      "location": "Whitefield, Bengaluru 560066",
+      "status": "Completed",
+      "statusBy": "KOYO",
+      "history": [
+        {
+          "at": "2026-10-22T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-10-25T06:30:00.000Z",
+          "status": "Sample collected",
+          "actor": "Ananya Rao",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-10-25T09:30:00.000Z",
+          "status": "In lab",
+          "actor": "Ananya Rao",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-10-25T12:30:00.000Z",
+          "status": "Report ready",
+          "actor": "KOYO Labs",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-10-25T15:30:00.000Z",
+          "status": "Completed",
+          "actor": "KOYO Labs",
+          "role": "KOYO"
+        }
+      ],
+      "report": {
+        "uploadedAt": "2026-10-27T11:30:00.000Z",
+        "uploadedBy": "KOYO Labs",
+        "note": "All parameters within reference range. HbA1c 5.6% — no action needed. Repeat annual panel in 12 months."
+      },
+      "patientToken": "7f74e6732cc150ac7b81ec19",
+      "createdAt": "2026-10-22T03:30:00.000Z"
+    },
+    {
+      "id": "PB-453E7D",
+      "partnerId": "PTR-01",
+      "employeeId": "EST-010248",
+      "employeeName": "Diya Nair",
+      "employeeCode": "EMP-2042",
+      "department": "Product",
+      "items": [
+        {
+          "id": "CAT-4AF07E",
+          "name": "Full Body Checkup — Flagship",
+          "kind": "Health package",
+          "rate": 1320
+        }
+      ],
+      "total": 1320,
+      "date": "2026-11-01",
+      "mode": "Home Collection",
+      "location": "Indiranagar, Bengaluru 560038",
+      "status": "Completed",
+      "statusBy": "KOYO",
+      "history": [
+        {
+          "at": "2026-10-28T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-10-31T06:30:00.000Z",
+          "status": "Sample collected",
+          "actor": "Ananya Rao",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-10-31T09:30:00.000Z",
+          "status": "In lab",
+          "actor": "Ananya Rao",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-10-31T12:30:00.000Z",
+          "status": "Report ready",
+          "actor": "KOYO Labs",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-10-31T15:30:00.000Z",
+          "status": "Completed",
+          "actor": "KOYO Labs",
+          "role": "KOYO"
+        }
+      ],
+      "report": {
+        "uploadedAt": "2026-11-02T11:30:00.000Z",
+        "uploadedBy": "KOYO Labs",
+        "note": "Vitamin D insufficiency (18 ng/mL, reference 30–100). Supplementation advised; retest in 12 weeks. Everything else normal."
+      },
+      "patientToken": "6e5caa89660c0ce99227834c",
+      "createdAt": "2026-10-28T03:30:00.000Z"
+    },
+    {
+      "id": "PB-0F4A5B",
+      "partnerId": "PTR-01",
+      "employeeId": "EST-F3B7D5",
+      "employeeName": "Rohan Iyer",
+      "employeeCode": "EMP-2043",
+      "department": "Finance",
+      "items": [
+        {
+          "id": "CAT-C9BD64",
+          "name": "Comprehensive Executive Health Check — Male (30–50)",
+          "kind": "Health package",
+          "rate": 1160
+        },
+        {
+          "id": "CAT-F3B52A",
+          "name": "12-Lead ECG (Resting)",
+          "kind": "Radiology & imaging",
+          "rate": 200
+        }
+      ],
+      "total": 1360,
+      "date": "2026-11-07",
+      "mode": "Centre Visit",
+      "location": "KOYO Centre — Koramangala, Bengaluru",
+      "status": "Report ready",
+      "statusBy": "KOYO",
+      "history": [
+        {
+          "at": "2026-11-03T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-11-06T06:30:00.000Z",
+          "status": "Sample collected",
+          "actor": "Ananya Rao",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-11-06T09:30:00.000Z",
+          "status": "In lab",
+          "actor": "Ananya Rao",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-11-06T12:30:00.000Z",
+          "status": "Report ready",
+          "actor": "KOYO Labs",
+          "role": "KOYO"
+        }
+      ],
+      "report": {
+        "uploadedAt": "2026-11-08T11:30:00.000Z",
+        "uploadedBy": "KOYO Labs",
+        "note": "Borderline LDL (138 mg/dL). ECG normal. Cardiology review recommended if family history is positive."
+      },
+      "patientToken": "11f0e0c56b6f072a72f29e13",
+      "createdAt": "2026-11-03T03:30:00.000Z"
+    },
+    {
+      "id": "PB-AF6F67",
+      "partnerId": "PTR-01",
+      "employeeId": "EST-8E4A6A",
+      "employeeName": "Sneha Kulkarni",
+      "employeeCode": "EMP-2044",
+      "department": "Design",
+      "items": [
+        {
+          "id": "CAT-94CCB8",
+          "name": "Thyroid Profile (T3, T4, TSH)",
+          "kind": "Pathology",
+          "rate": 490
+        },
+        {
+          "id": "CAT-F19439",
+          "name": "Vitamin D (25-OH)",
+          "kind": "Pathology",
+          "rate": 760
+        }
+      ],
+      "total": 1250,
+      "date": "2026-11-11",
+      "mode": "Home Collection",
+      "location": "HSR Layout, Bengaluru 560102",
+      "status": "In lab",
+      "statusBy": "Partner",
+      "history": [
+        {
+          "at": "2026-11-07T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-11-10T06:30:00.000Z",
+          "status": "Sample collected",
+          "actor": "Ananya Rao",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-11-10T09:30:00.000Z",
+          "status": "In lab",
+          "actor": "Ananya Rao",
+          "role": "Partner"
+        }
+      ],
+      "patientToken": "dba69e72410b83d5e2e24cf7",
+      "createdAt": "2026-11-07T03:30:00.000Z"
+    },
+    {
+      "id": "PB-E4CB2A",
+      "partnerId": "PTR-01",
+      "employeeId": "EST-126746",
+      "employeeName": "Vikram Desai",
+      "employeeCode": "EMP-2045",
+      "department": "Engineering",
+      "items": [
+        {
+          "id": "CAT-6D109A",
+          "name": "Liver Function Test (LFT)",
+          "kind": "Pathology",
+          "rate": 450
+        },
+        {
+          "id": "CAT-E39BA9",
+          "name": "Kidney Function Test (KFT)",
+          "kind": "Pathology",
+          "rate": 450
+        },
+        {
+          "id": "CAT-4EB24E",
+          "name": "Urine Routine & Microscopy",
+          "kind": "Pathology",
+          "rate": 200
+        }
+      ],
+      "total": 1100,
+      "date": "2026-11-13",
+      "mode": "On-site",
+      "location": "Meridian Tech — Whitefield campus, Bengaluru",
+      "notes": "Camp desk 2, ground floor. 24 employees in this batch.",
+      "status": "Sample collected",
+      "statusBy": "Partner",
+      "history": [
+        {
+          "at": "2026-11-09T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-11-12T06:30:00.000Z",
+          "status": "Sample collected",
+          "actor": "Ananya Rao",
+          "role": "Partner"
+        }
+      ],
+      "patientToken": "aeb35c5de98427f26143641b",
+      "createdAt": "2026-11-09T03:30:00.000Z"
+    },
+    {
+      "id": "PB-1B2E34",
+      "partnerId": "PTR-01",
+      "employeeId": "EST-A2D1F9",
+      "employeeName": "Meera Krishnan",
+      "employeeCode": "EMP-2046",
+      "department": "People",
+      "items": [
+        {
+          "id": "CAT-60C445",
+          "name": "Meridian Pre-employment Panel",
+          "kind": "Custom package",
+          "rate": 1090
+        }
+      ],
+      "total": 1090,
+      "date": "2026-11-14",
+      "mode": "On-site",
+      "location": "Meridian Tech — Whitefield campus, Bengaluru",
+      "status": "Scheduled",
+      "statusBy": "KOYO",
+      "history": [
+        {
+          "at": "2026-11-10T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        }
+      ],
+      "patientToken": "1a51598646111bff605c2654",
+      "createdAt": "2026-11-10T03:30:00.000Z"
+    },
+    {
+      "id": "PB-5845CD",
+      "partnerId": "PTR-01",
+      "employeeId": "EST-CF6BFF",
+      "employeeName": "Aditya Bose",
+      "employeeCode": "EMP-2047",
+      "department": "Sales",
+      "items": [
+        {
+          "id": "CAT-017DDD",
+          "name": "X-Ray Chest (PA)",
+          "kind": "Radiology & imaging",
+          "rate": 200
+        },
+        {
+          "id": "CAT-F3B52A",
+          "name": "12-Lead ECG (Resting)",
+          "kind": "Radiology & imaging",
+          "rate": 200
+        }
+      ],
+      "total": 400,
+      "date": "2026-11-15",
+      "mode": "Centre Visit",
+      "location": "KOYO Centre — Indiranagar, Bengaluru",
+      "status": "Completed",
+      "statusBy": "KOYO",
+      "history": [
+        {
+          "at": "2026-11-11T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-11-13T07:20:52.038Z",
+          "status": "Completed",
+          "actor": "KOYO Operations",
+          "role": "KOYO"
+        }
+      ],
+      "patientToken": "434b44b3c4264b904434f8f8",
+      "createdAt": "2026-11-11T03:30:00.000Z"
+    },
+    {
+      "id": "PB-C24A1E",
+      "partnerId": "PTR-01",
+      "employeeId": "EST-5C6923",
+      "employeeName": "Nisha Verma",
+      "employeeCode": "EMP-2048",
+      "department": "Engineering",
+      "items": [
+        {
+          "id": "CAT-2641EA",
+          "name": "Complete Blood Count (CBC)",
+          "kind": "Pathology",
+          "rate": 240
+        },
+        {
+          "id": "CAT-74DE25",
+          "name": "Lipid Profile",
+          "kind": "Pathology",
+          "rate": 400
+        }
+      ],
+      "total": 640,
+      "date": "2026-11-16",
+      "mode": "Home Collection",
+      "location": "Marathahalli, Bengaluru 560037",
+      "status": "Scheduled",
+      "statusBy": "KOYO",
+      "history": [
+        {
+          "at": "2026-11-12T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        }
+      ],
+      "patientToken": "162b32195dc64023b8f78db1",
+      "createdAt": "2026-11-12T03:30:00.000Z"
+    },
+    {
+      "id": "PB-3A8038",
+      "partnerId": "PTR-02",
+      "employeeId": "EST-3A9BCF",
+      "employeeName": "Suresh Pawar",
+      "employeeCode": "NLM-1101",
+      "department": "Assembly",
+      "items": [
+        {
+          "id": "CAT-402401",
+          "name": "Factory Fitness Panel (Factories Act)",
+          "kind": "Custom package",
+          "rate": 1690
+        }
+      ],
+      "total": 1690,
+      "date": "2026-11-04",
+      "mode": "On-site",
+      "location": "Northline — Chakan Plant, Pune",
+      "status": "Completed",
+      "statusBy": "KOYO",
+      "history": [
+        {
+          "at": "2026-10-31T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-11-03T06:30:00.000Z",
+          "status": "Sample collected",
+          "actor": "Ganesh Shinde",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-11-03T09:30:00.000Z",
+          "status": "In lab",
+          "actor": "Ganesh Shinde",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-11-03T12:30:00.000Z",
+          "status": "Report ready",
+          "actor": "KOYO Labs",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-11-03T15:30:00.000Z",
+          "status": "Completed",
+          "actor": "KOYO Labs",
+          "role": "KOYO"
+        }
+      ],
+      "report": {
+        "uploadedAt": "2026-11-05T11:30:00.000Z",
+        "uploadedBy": "KOYO Labs",
+        "note": "Fit for duty. Hearing threshold within limits at 3 kHz. Chest X-ray normal."
+      },
+      "patientToken": "7d3337068891f45125f8ea19",
+      "createdAt": "2026-10-31T03:30:00.000Z"
+    },
+    {
+      "id": "PB-0B24D2",
+      "partnerId": "PTR-02",
+      "employeeId": "EST-1756D2",
+      "employeeName": "Anita Jadhav",
+      "employeeCode": "NLM-1102",
+      "department": "Quality",
+      "items": [
+        {
+          "id": "CAT-C3FC0F",
+          "name": "Complete Blood Count (CBC)",
+          "kind": "Pathology",
+          "rate": 220
+        },
+        {
+          "id": "CAT-BA5A30",
+          "name": "Liver Function Test (LFT)",
+          "kind": "Pathology",
+          "rate": 400
+        },
+        {
+          "id": "CAT-3D2D01",
+          "name": "Kidney Function Test (KFT)",
+          "kind": "Pathology",
+          "rate": 400
+        }
+      ],
+      "total": 1020,
+      "date": "2026-11-09",
+      "mode": "On-site",
+      "location": "Northline — Chakan Plant, Pune",
+      "status": "Report ready",
+      "statusBy": "KOYO",
+      "history": [
+        {
+          "at": "2026-11-05T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-11-08T06:30:00.000Z",
+          "status": "Sample collected",
+          "actor": "Ganesh Shinde",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-11-08T09:30:00.000Z",
+          "status": "In lab",
+          "actor": "Ganesh Shinde",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-11-08T12:30:00.000Z",
+          "status": "Report ready",
+          "actor": "KOYO Labs",
+          "role": "KOYO"
+        }
+      ],
+      "report": {
+        "uploadedAt": "2026-11-10T11:30:00.000Z",
+        "uploadedBy": "KOYO Labs",
+        "note": "Mild anaemia (Hb 11.4 g/dL). Iron studies advised; no workplace restriction."
+      },
+      "patientToken": "999264d427fbd0a401c62361",
+      "createdAt": "2026-11-05T03:30:00.000Z"
+    },
+    {
+      "id": "PB-785FBF",
+      "partnerId": "PTR-02",
+      "employeeId": "EST-20089E",
+      "employeeName": "Ganesh Shinde",
+      "employeeCode": "NLM-1103",
+      "department": "Maintenance",
+      "items": [
+        {
+          "id": "CAT-D079F4",
+          "name": "X-Ray Chest (PA)",
+          "kind": "Radiology & imaging",
+          "rate": 190
+        },
+        {
+          "id": "CAT-C00E90",
+          "name": "12-Lead ECG (Resting)",
+          "kind": "Radiology & imaging",
+          "rate": 190
+        },
+        {
+          "id": "CAT-78D284",
+          "name": "Lipid Profile",
+          "kind": "Pathology",
+          "rate": 360
+        }
+      ],
+      "total": 740,
+      "date": "2026-11-13",
+      "mode": "Centre Visit",
+      "location": "KOYO Centre — Chinchwad, Pune",
+      "status": "In lab",
+      "statusBy": "Partner",
+      "history": [
+        {
+          "at": "2026-11-09T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-11-12T06:30:00.000Z",
+          "status": "Sample collected",
+          "actor": "Ganesh Shinde",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-11-12T09:30:00.000Z",
+          "status": "In lab",
+          "actor": "Ganesh Shinde",
+          "role": "Partner"
+        }
+      ],
+      "patientToken": "b287591dc2bb8f9417c4939e",
+      "createdAt": "2026-11-09T03:30:00.000Z"
+    },
+    {
+      "id": "PB-167277",
+      "partnerId": "PTR-02",
+      "employeeId": "EST-15EFE7",
+      "employeeName": "Pooja Deshmukh",
+      "employeeCode": "NLM-1104",
+      "department": "Stores",
+      "items": [
+        {
+          "id": "CAT-C3FC0F",
+          "name": "Complete Blood Count (CBC)",
+          "kind": "Pathology",
+          "rate": 220
+        },
+        {
+          "id": "CAT-7557B5",
+          "name": "Urine Routine & Microscopy",
+          "kind": "Pathology",
+          "rate": 180
+        }
+      ],
+      "total": 400,
+      "date": "2026-11-15",
+      "mode": "On-site",
+      "location": "Northline — Ranjangaon Plant, Pune",
+      "status": "Scheduled",
+      "statusBy": "KOYO",
+      "history": [
+        {
+          "at": "2026-11-11T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        }
+      ],
+      "patientToken": "bd5171d737681b05c42ed9ec",
+      "createdAt": "2026-11-11T03:30:00.000Z"
+    },
+    {
+      "id": "PB-F7B445",
+      "partnerId": "PTR-03",
+      "employeeId": "EST-28717F",
+      "employeeName": "Ishaan Kapoor",
+      "employeeCode": "ARC-3301",
+      "department": "Trading",
+      "items": [
+        {
+          "id": "CAT-EC6F71",
+          "name": "Comprehensive Executive Health Check — Male (30–50)",
+          "kind": "Health package",
+          "rate": 1130
+        }
+      ],
+      "total": 1130,
+      "date": "2026-10-24",
+      "mode": "Home Collection",
+      "location": "Bandra West, Mumbai 400050",
+      "status": "Completed",
+      "statusBy": "KOYO",
+      "history": [
+        {
+          "at": "2026-10-20T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-10-23T06:30:00.000Z",
+          "status": "Sample collected",
+          "actor": "Riya Sethi",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-10-23T09:30:00.000Z",
+          "status": "In lab",
+          "actor": "Riya Sethi",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-10-23T12:30:00.000Z",
+          "status": "Report ready",
+          "actor": "KOYO Labs",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-10-23T15:30:00.000Z",
+          "status": "Completed",
+          "actor": "KOYO Labs",
+          "role": "KOYO"
+        }
+      ],
+      "report": {
+        "uploadedAt": "2026-10-25T11:30:00.000Z",
+        "uploadedBy": "KOYO Labs",
+        "note": "All parameters normal except mild dyslipidaemia. Lifestyle plan shared with the employee directly."
+      },
+      "patientToken": "4561b55a356bdff0891070b5",
+      "createdAt": "2026-10-20T03:30:00.000Z"
+    },
+    {
+      "id": "PB-657357",
+      "partnerId": "PTR-03",
+      "employeeId": "EST-9A5ED3",
+      "employeeName": "Riya Sethi",
+      "employeeCode": "ARC-3302",
+      "department": "Compliance",
+      "items": [
+        {
+          "id": "CAT-068C10",
+          "name": "Lipid Profile",
+          "kind": "Pathology",
+          "rate": 390
+        },
+        {
+          "id": "CAT-99905C",
+          "name": "HbA1c (Glycated Haemoglobin)",
+          "kind": "Pathology",
+          "rate": 350
+        },
+        {
+          "id": "CAT-FC9DEF",
+          "name": "Thyroid Profile (T3, T4, TSH)",
+          "kind": "Pathology",
+          "rate": 480
+        }
+      ],
+      "total": 1220,
+      "date": "2026-11-14",
+      "mode": "Centre Visit",
+      "location": "KOYO Centre — BKC, Mumbai",
+      "status": "Scheduled",
+      "statusBy": "KOYO",
+      "history": [
+        {
+          "at": "2026-11-10T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        }
+      ],
+      "patientToken": "a70b0c004309b1870fd47f53",
+      "createdAt": "2026-11-10T03:30:00.000Z"
+    },
+    {
+      "id": "PB-72D9AB",
+      "partnerId": "PTR-03",
+      "employeeId": "EST-66C05B",
+      "employeeName": "Kavya Shetty",
+      "employeeCode": "ARC-3304",
+      "department": "Risk",
+      "items": [
+        {
+          "id": "CAT-14470C",
+          "name": "Treadmill Test (Bruce Protocol)",
+          "kind": "Radiology & imaging",
+          "rate": 1230
+        },
+        {
+          "id": "CAT-6E979B",
+          "name": "Transthoracic Echo (2D)",
+          "kind": "Radiology & imaging",
+          "rate": 1230
+        }
+      ],
+      "total": 2460,
+      "date": "2026-11-17",
+      "mode": "Centre Visit",
+      "location": "KOYO Centre — Lower Parel, Mumbai",
+      "status": "Scheduled",
+      "statusBy": "KOYO",
+      "history": [
+        {
+          "at": "2026-11-13T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        }
+      ],
+      "patientToken": "6c44ec7ee8db3f3d34c6a844",
+      "createdAt": "2026-11-13T03:30:00.000Z"
+    },
+    {
+      "id": "PB-939D30",
+      "partnerId": "PTR-03",
+      "employeeId": "EST-BC6FB7",
+      "employeeName": "Tanvi Joshi",
+      "employeeCode": "ARC-3306",
+      "department": "Operations",
+      "items": [
+        {
+          "id": "CAT-F79278",
+          "name": "Vitamin D (25-OH)",
+          "kind": "Pathology",
+          "rate": 740
+        },
+        {
+          "id": "CAT-8D0CF4",
+          "name": "12-Lead ECG (Resting)",
+          "kind": "Radiology & imaging",
+          "rate": 200
+        }
+      ],
+      "total": 940,
+      "date": "2026-11-10",
+      "mode": "Home Collection",
+      "location": "Lower Parel, Mumbai 400013",
+      "notes": "Employee travelling; partner asked to re-schedule next month.",
+      "status": "Cancelled",
+      "statusBy": "Partner",
+      "history": [
+        {
+          "at": "2026-11-06T03:30:00.000Z",
+          "status": "Scheduled",
+          "actor": "KOYO Client Services",
+          "role": "KOYO"
+        },
+        {
+          "at": "2026-11-09T05:30:00.000Z",
+          "status": "Cancelled",
+          "actor": "Riya Sethi",
+          "role": "Partner"
+        }
+      ],
+      "patientToken": "b7910a4282a6f414aeffee22",
+      "createdAt": "2026-11-06T03:30:00.000Z"
+    },
+    {
+      "id": "PB-E6CDDB",
+      "partnerId": "PTR-01",
+      "employeeId": "EST-B7F759",
+      "employeeName": "Aarav Sharma",
+      "employeeCode": "EMP-2041",
+      "department": "Engineering",
+      "items": [
+        {
+          "id": "CAT-C9BD64",
+          "name": "Comprehensive Executive Health Check — Male (30–50)",
+          "kind": "Health package",
+          "rate": 1160
+        }
+      ],
+      "total": 1160,
+      "date": "2026-11-15",
+      "mode": "Home Collection",
+      "location": "Whitefield, Bengaluru 560066",
+      "status": "Report ready",
+      "statusBy": "Partner",
+      "history": [
+        {
+          "at": "2026-11-13T07:03:46.428Z",
+          "status": "Scheduled",
+          "actor": "Ananya Rao",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-11-13T07:04:40.580Z",
+          "status": "Sample collected",
+          "actor": "Ananya Rao",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-11-13T07:04:52.488Z",
+          "status": "Report ready",
+          "actor": "Ananya Rao",
+          "role": "Partner"
+        },
+        {
+          "at": "2026-11-13T07:05:34.092Z",
+          "status": "Report ready",
+          "actor": "Ananya Rao",
+          "role": "Partner"
+        }
+      ],
+      "patientToken": "4d0c7973841aa49d91c385bc",
+      "createdAt": "2026-11-13T07:03:46.428Z",
+      "report": {
+        "uploadedAt": "2026-11-13T07:05:34.092Z",
+        "uploadedBy": "Ananya Rao",
+        "note": "Signed report attached. Values within range apart from vitamin D insufficiency.",
+        "file": {
+          "name": "aarav-executive-panel.pdf",
+          "mime": "application/pdf",
+          "size": 192,
+          "storedName": "PB-E6CDDB-8b88bd04e103773b.pdf"
+        }
+      }
+    }
+  ],
+  "activity": [
+    {
+      "id": "ACT-50A539",
+      "at": "2026-11-13T07:20:52.039Z",
+      "partnerId": "PTR-01",
+      "actor": "KOYO Operations",
+      "role": "KOYO",
+      "action": "Booking completed",
+      "detail": "Aditya Bose · PB-5845CD"
+    },
+    {
+      "id": "ACT-5E949D",
+      "at": "2026-11-13T07:05:34.093Z",
+      "partnerId": "PTR-01",
+      "actor": "Ananya Rao",
+      "role": "Partner",
+      "action": "Report released",
+      "detail": "Aarav Sharma · PB-E6CDDB"
+    },
+    {
+      "id": "ACT-1328A4",
+      "at": "2026-11-13T07:04:52.488Z",
+      "partnerId": "PTR-01",
+      "actor": "Ananya Rao",
+      "role": "Partner",
+      "action": "Report released",
+      "detail": "Aarav Sharma · PB-E6CDDB"
+    },
+    {
+      "id": "ACT-E14583",
+      "at": "2026-11-13T07:04:40.580Z",
+      "partnerId": "PTR-01",
+      "actor": "Ananya Rao",
+      "role": "Partner",
+      "action": "Booking sample collected",
+      "detail": "Aarav Sharma · PB-E6CDDB"
+    },
+    {
+      "id": "ACT-7F2746",
+      "at": "2026-11-13T07:03:46.430Z",
+      "partnerId": "PTR-01",
+      "actor": "Ananya Rao",
+      "role": "Partner",
+      "action": "Bookings scheduled",
+      "detail": "1 employee · Home Collection · 2026-11-15"
+    },
+    {
+      "id": "ACT-D6E4C3",
+      "at": "2026-10-25T15:30:00.000Z",
+      "partnerId": "PTR-01",
+      "actor": "KOYO Labs",
+      "role": "KOYO",
+      "action": "Completed",
+      "detail": "Aarav Sharma · EMP-2041 · Meridian Tech"
+    },
+    {
+      "id": "ACT-185BD7",
+      "at": "2026-10-31T15:30:00.000Z",
+      "partnerId": "PTR-01",
+      "actor": "KOYO Labs",
+      "role": "KOYO",
+      "action": "Completed",
+      "detail": "Diya Nair · EMP-2042 · Meridian Tech"
+    },
+    {
+      "id": "ACT-1DF9F1",
+      "at": "2026-11-06T12:30:00.000Z",
+      "partnerId": "PTR-01",
+      "actor": "KOYO Labs",
+      "role": "KOYO",
+      "action": "Report ready",
+      "detail": "Rohan Iyer · EMP-2043 · Meridian Tech"
+    },
+    {
+      "id": "ACT-23604C",
+      "at": "2026-11-10T09:30:00.000Z",
+      "partnerId": "PTR-01",
+      "actor": "Ananya Rao",
+      "role": "Partner",
+      "action": "In lab",
+      "detail": "Sneha Kulkarni · EMP-2044 · Meridian Tech"
+    },
+    {
+      "id": "ACT-8BEFE4",
+      "at": "2026-11-12T06:30:00.000Z",
+      "partnerId": "PTR-01",
+      "actor": "Ananya Rao",
+      "role": "Partner",
+      "action": "Sample collected",
+      "detail": "Vikram Desai · EMP-2045 · Meridian Tech"
+    },
+    {
+      "id": "ACT-B93B7C",
+      "at": "2026-11-03T15:30:00.000Z",
+      "partnerId": "PTR-02",
+      "actor": "KOYO Labs",
+      "role": "KOYO",
+      "action": "Completed",
+      "detail": "Suresh Pawar · NLM-1101 · Northline Motors"
+    },
+    {
+      "id": "ACT-6D9069",
+      "at": "2026-11-08T12:30:00.000Z",
+      "partnerId": "PTR-02",
+      "actor": "KOYO Labs",
+      "role": "KOYO",
+      "action": "Report ready",
+      "detail": "Anita Jadhav · NLM-1102 · Northline Motors"
+    },
+    {
+      "id": "ACT-6F4C9A",
+      "at": "2026-11-12T09:30:00.000Z",
+      "partnerId": "PTR-02",
+      "actor": "Ganesh Shinde",
+      "role": "Partner",
+      "action": "In lab",
+      "detail": "Ganesh Shinde · NLM-1103 · Northline Motors"
+    }
+  ]
+}

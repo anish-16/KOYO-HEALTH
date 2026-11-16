@@ -22,6 +22,9 @@ const nextConfig = {
   compress: true,
   reactStrictMode: true,
   images: { formats: ['image/avif', 'image/webp'] },
+  // B2B partners upload signed report PDFs from the portal; the default 1 MB
+  // action limit would reject a scanned report.
+  experimental: { serverActions: { bodySizeLimit: '8mb' } },
   async redirects() {
     return [
       { source: '/privacy-policy', destination: '/legal/privacy', permanent: true },

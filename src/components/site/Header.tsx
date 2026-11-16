@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'motion/react';
 import {
-  ArrowRight, ChevronDown, Menu, Phone, Search, ShoppingBag, UserRound, X, Sparkles,
+  ArrowRight, Building2, ChevronDown, Menu, Phone, Search, ShoppingBag, UserRound, X, Sparkles,
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Logo } from '@/components/brand/Logo';
@@ -30,7 +30,7 @@ export function Header({ searchIndex }: { searchIndex: SearchEntry[] }) {
   const pathname = usePathname();
   const { count, open: openCart } = useBooking();
   const { user } = useSessionUser();
-  const [mega, setMega] = useState<'blood' | 'scans' | 'resources' | null>(null);
+  const [mega, setMega] = useState<'blood' | 'scans' | 'resources' | 'portal' | null>(null);
   // Hover already opened the panel, so the first click must not immediately
   // close it again — only a second click (or moving away) does that.
   const hoverOpened = useRef<string | null>(null);
@@ -160,6 +160,18 @@ export function Header({ searchIndex }: { searchIndex: SearchEntry[] }) {
             >
               Resources <ChevronDown className={cn('h-3 w-3 transition-transform', mega === 'resources' && 'rotate-180')} />
             </button>
+            <button
+              type="button"
+              aria-expanded={mega === 'portal'}
+              onClick={() => setMega(mega === 'portal' ? null : 'portal')}
+              onMouseEnter={() => setMega('portal')}
+              className={cn(
+                'flex items-center gap-1 rounded-full px-3 py-2 text-[0.8125rem] font-medium transition-colors',
+                mega === 'portal' ? 'bg-ink text-white' : 'text-ink/75 hover:bg-ink/[0.05] hover:text-ink',
+              )}
+            >
+              Portal <ChevronDown className={cn('h-3 w-3 transition-transform', mega === 'portal' && 'rotate-180')} />
+            </button>
           </nav>
 
           <div className="flex items-center gap-1.5">
@@ -242,6 +254,54 @@ export function Header({ searchIndex }: { searchIndex: SearchEntry[] }) {
               ))}
             </motion.div>
           )}
+
+          {mega === 'portal' && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute right-4 top-full hidden w-[25rem] border border-line bg-paper p-2 shadow-lift lg:block"
+              style={{ borderRadius: '0 0 1rem 1rem' }}
+            >
+              <p className="px-3 pb-1 pt-2 text-[0.5625rem] font-semibold uppercase tracking-[0.14em] text-ink/40">
+                Choose a portal
+              </p>
+              <Link href="/portal/b2b" onClick={() => setMega(null)} className="flex items-start gap-3 rounded-xl px-3 py-3 transition-colors hover:bg-teal-mist">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-ink text-gold">
+                  <Building2 className="h-4 w-4" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="flex items-center gap-2 text-sm font-medium text-ink">
+                    B2B portal
+                    <span className="rounded-full bg-teal-mist px-1.5 py-0.5 text-[0.5rem] font-semibold uppercase tracking-[0.08em] text-teal-deep">Live</span>
+                  </span>
+                  <span className="mt-0.5 block text-xs leading-relaxed text-muted">
+                    Partner catalogues, employee rosters, bulk bookings and report release.
+                  </span>
+                </span>
+              </Link>
+              <Link href="/portal/b2c" onClick={() => setMega(null)} className="flex items-start gap-3 rounded-xl px-3 py-3 transition-colors hover:bg-teal-mist">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-sand text-teal-deep">
+                  <UserRound className="h-4 w-4" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="flex items-center gap-2 text-sm font-medium text-ink">
+                    B2C portal
+                    <span className="rounded-full bg-gold-soft px-1.5 py-0.5 text-[0.5rem] font-semibold uppercase tracking-[0.08em] text-gold-deep">Soon</span>
+                  </span>
+                  <span className="mt-0.5 block text-xs leading-relaxed text-muted">
+                    Your own bookings, reports, family profiles and wallet.
+                  </span>
+                </span>
+              </Link>
+              <div className="mt-1 border-t border-line px-3 pb-2 pt-2">
+                <Link href="/portal" onClick={() => setMega(null)} className="inline-flex items-center gap-1 text-[0.6875rem] font-semibold text-teal-deep hover:underline">
+                  Compare both portals <ArrowRight className="h-3 w-3" />
+                </Link>
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
       </header>
 
@@ -273,6 +333,8 @@ export function Header({ searchIndex }: { searchIndex: SearchEntry[] }) {
                     { href: '/cities', label: 'Cities' },
                     { href: '/blogs', label: 'Health insights' },
                     { href: '/about-us', label: 'About KOYO' },
+                    { href: '/portal/b2b', label: 'B2B partner portal' },
+                    { href: '/portal/b2c', label: 'B2C patient portal' },
                   ].map((l) => (
                     <Link key={l.href} href={l.href} className="rounded-xl border border-line bg-white px-3 py-3 text-[0.8125rem] font-medium">
                       {l.label}
