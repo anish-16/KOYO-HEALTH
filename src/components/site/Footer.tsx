@@ -84,7 +84,7 @@ export function Footer() {
           <div>
             <p className="text-2xs font-semibold uppercase tracking-[0.14em] text-paper/35">Talk to us</p>
             <a href="tel:+918800580075" className="mt-2 flex items-center gap-2 text-sm text-paper/85 hover:text-gold">
-              <Phone className="h-3.5 w-3.5 text-gold" /> +91 88005 80075
+              <Phone className="h-3.5 w-3.5 text-gold" /> +91 9876543210
             </a>
             <a href="mailto:care@koyohealth.in" className="mt-2 flex items-center gap-2 text-sm text-paper/85 hover:text-gold">
               <Mail className="h-3.5 w-3.5 text-gold" /> care@koyohealth.in
@@ -95,9 +95,8 @@ export function Footer() {
             <p className="text-2xs font-semibold uppercase tracking-[0.14em] text-paper/35">Registered office</p>
             <p className="mt-2 flex gap-2 text-xs leading-relaxed text-paper/55">
               <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold" />
-              9th Floor, Tower C, Nukleus, Logix Cyber Park, Sector 62, Noida, Uttar Pradesh 201309
+              A Floor, XYZ Tower, Corporate Park, Sector XX, City, State, Country
             </p>
-            <p className="mt-2 text-[0.625rem] text-paper/30">CIN U85110UP2019PTC118472 · GSTIN 09AAKCK8841P1ZQ</p>
           </div>
           <div>
             <p className="text-2xs font-semibold uppercase tracking-[0.14em] text-paper/35">Get the app</p>
@@ -113,7 +112,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-4 border-t border-paper/10 pt-6 text-[0.625rem] text-paper/35 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 KOYO Health Diagnostics Pvt. Ltd. All rights reserved.</p>
+          <p>© 2026 KOYO Health Pvt. Ltd. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link href="/privacy-policy" className="hover:text-paper/70">Privacy</Link>
             <Link href="/terms" className="hover:text-paper/70">Terms</Link>
@@ -124,12 +123,6 @@ export function Footer() {
             <span className="rounded border border-paper/15 px-1.5 py-0.5">Mastercard</span>
           </div>
         </div>
-
-        <p className="mt-4 text-[0.5625rem] leading-relaxed text-paper/20">
-          KOYO Health is a diagnostic service platform, not a medical provider. Reports are interpreted by
-          registered pathologists and radiologists; clinical decisions should always be made with a qualified
-          physician. If you are experiencing a medical emergency, call 112 or visit the nearest emergency department.
-        </p>
       </div>
     </footer>
   );
